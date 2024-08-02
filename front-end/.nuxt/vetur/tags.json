@@ -1,0 +1,29 @@
+{
+  "GraficoColunaMaster": {
+    "description": "Auto imported from components/GraficoColunaMaster.vue"
+  },
+  "GraficoTortaMaster": {
+    "description": "Auto imported from components/GraficoTortaMaster.vue"
+  },
+  "GraphicBar": {
+    "description": "Auto imported from components/GraphicBar.vue"
+  },
+  "GraphicLine": {
+    "description": "Auto imported from components/GraphicLine.vue"
+  },
+  "GraphicPie": {
+    "description": "Auto imported from components/GraphicPie.vue"
+  },
+  "NuxtLogo": {
+    "description": "Auto imported from components/NuxtLogo.vue"
+  },
+  "TooltipComponent": {
+    "description": "Auto imported from components/TooltipComponent.vue"
+  },
+  "Tutorial": {
+    "description": "Auto imported from components/Tutorial.vue"
+  },
+  "VuetifyLogo": {
+    "description": "Auto imported from components/VuetifyLogo.vue"
+  }
+}
