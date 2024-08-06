@@ -1,14 +1,14 @@
 back-end:
 
-npm install
-npm run dev
-#roda no servidor localhost:3333
+$ npm install
+$ npm run dev
+# roda no servidor localhost:3333
 
 front-end:
 
-npm install
-npm run dev
-#roda no servidor localhost:3000
+$ npm install
+$ npm run dev
+# roda no servidor localhost:3000
 
 
 
