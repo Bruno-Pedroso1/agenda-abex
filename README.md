@@ -1,18 +1,16 @@
 # back-end:
 #install
 $ npm install
-
-#server rodando no localhost:3333
 $ npm run dev
+#server rodando no localhost:3333
 
-front-end:
 
 # front-end:
 #install
 $ npm install
-
-#server rodando no localhost:3000
 $ npm run dev
+#server rodando no localhost:3000
+
 
 
 
