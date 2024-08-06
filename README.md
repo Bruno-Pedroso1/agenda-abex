@@ -14,7 +14,7 @@ $ npm run dev
 
 
 
-# fluxo: 
+### fluxo: 
     Superadministrador (nós) adicionamos uma empresa/filiais da empresa, criamos um usuário para o dono dela (role: admin, permission: master), a partir disto ele pode cadastrar seus serviços prestados com suas respectivas caracteristicas, ele pode fazer com que outros usuários se tornem funcionários desta empresa (role: admin), com isso os funcionários podem adicionar/modificar suas agendas, horarios, valores, serviços.
     Clientes ao acessar o site (tela inicial após login) verão as empresas com quem já solicitaram agendamento de serviço, caso ele queira outra empresa/serviço, ele poderá filtrar todas as empresas cadastradas no sistema para o que ele deseja. O usuário necessita fazer o pagamento do serviço antes de fato o mesmo ser agendado, no momento que é confirmado o pagamento do agendamento, ele cadastra no calendário, e se for de preferência do cliente, diretamente no google calendar, ao clicar em cima de um evento (criado no calendário do sistema), caso for cliente, mostrará informações sobre o valor, a data de agendamento, opção para reagendar/cancelar, taxas cobradas em caso de cancelamento (em caso de cancelamento o usuário terá o estorno em créditos para gastar em qualquer serviço prestado pela mesma empresa), caso o usuário seja um funcionário, mostrará informações a respeito do cliente em vez da empresa.
     Um usuário com permission master (dono), terá como criar voucher para sua empresa, válidos em qualquer uma das filiais da mesma, os vouchers são créditos ex: o cliente compra 1000 reais em créditos por valores como 800 reais.
