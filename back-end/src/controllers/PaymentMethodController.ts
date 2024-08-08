@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import PaymentMethod from "../models/PaymentMethod";
 
 const PaymentMethodController = {
+  // exibir todos os métodos de pagamento.
   getAllPaymentMethods: async (_req: Request, res: Response): Promise<void> => {
     try {
       const paymentMethods = await PaymentMethod.findAll();
@@ -11,7 +12,7 @@ const PaymentMethodController = {
       res.status(500).json({ message: "Error getting payment methods" });
     }
   },
-
+// exibir método de pagamento por id.
   getPaymentMethodById: async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
     try {
@@ -26,7 +27,7 @@ const PaymentMethodController = {
       res.status(500).json({ message: "Error getting payment method" });
     }
   },
-
+// cadastrar método de pagamento.
   createPaymentMethod: async (req: Request, res: Response): Promise<void> => {
     const { idBranch, idIntegration, type, description } = req.body;
     try {
@@ -42,7 +43,7 @@ const PaymentMethodController = {
       res.status(500).json({ message: "Error creating payment method" });
     }
   },
-
+// atualizar/modificar método de pagamento.
   updatePaymentMethod: async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
     const { type, description, idBranch, idIntegration } = req.body;
@@ -63,7 +64,7 @@ const PaymentMethodController = {
       res.status(500).json({ message: "Error updating payment method" });
     }
   },
-
+// excluir método de pagamento.
   deletePaymentMethod: async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
     try {
