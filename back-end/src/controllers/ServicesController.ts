@@ -4,6 +4,7 @@ import Scheduling from "../models/Scheduling";
 import Schedule from "../models/Schedule";
 
 const ServicesController = {
+  // cadastra serviço.
   createService: async (req: Request, res: Response): Promise<void> => {
     try {
       const { name, image, description, idBranch } = req.body;
@@ -21,7 +22,7 @@ const ServicesController = {
         .json({ message: "An error occurred while creating the service." });
     }
   },
-
+// exibe todos os serviços.
   getAllServices: async (req: Request, res: Response): Promise<void> => {
     try {
       const service = await Services.findAll();
@@ -33,7 +34,7 @@ const ServicesController = {
         .json({ message: "An error occurred while fetching service." });
     }
   },
-
+// exibe serviço por id.
   getServiceById: async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
     try {
@@ -50,7 +51,7 @@ const ServicesController = {
         .json({ message: "An error occurred while fetching the service." });
     }
   },
-
+// atualiza/modifica serviço.
   updateService: async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
     const { name, image, description, idBranch } = req.body;
@@ -69,7 +70,7 @@ const ServicesController = {
         .json({ message: "An error occurred while updating the Service." });
     }
   },
-
+// excluir serviço.
   deleteService: async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
     try {
