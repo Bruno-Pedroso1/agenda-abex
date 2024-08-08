@@ -4,6 +4,7 @@ import { QueryTypes, Sequelize } from "sequelize";
 import { WhereOptions } from "sequelize";
 
 const StateController = {
+  // cadastrar estado.
   createState: async (req: Request, res: Response): Promise<void> => {
     try {
       const { name, idCountry } = req.body;
@@ -19,7 +20,7 @@ const StateController = {
         .json({ message: "An error occurred while creating the state." });
     }
   },
-
+// cadastrar estado
   newCreateState: async (req: Request, res: Response): Promise<void> => {
     try {
       const { name } = req.params;
@@ -45,7 +46,7 @@ const StateController = {
         .json({ message: "An error occurred while creating the state." });
     }
   },
-
+// procura estado por nome.
   getStateByName: async (req: Request, res: Response): Promise<void> => {
     const { name } = req.query;
     try {
@@ -63,7 +64,7 @@ const StateController = {
       res.status(500).json({ error: "erro" });
     }
   },
-
+// exibe todos os estados.
   getAllStates: async (req: Request, res: Response): Promise<void> => {
     try {
       const states = await State.findAll();
@@ -75,7 +76,7 @@ const StateController = {
         .json({ message: "An error occurred while fetching states." });
     }
   },
-
+// procura estado por id.
   getStateById: async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
     try {
@@ -92,7 +93,7 @@ const StateController = {
         .json({ message: "An error occurred while fetching the state." });
     }
   },
-
+// atualiza/modifica estado.
   updateState: async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
     const { name, idCountry } = req.body;
@@ -114,7 +115,7 @@ const StateController = {
         .json({ message: "An error occurred while updating the state." });
     }
   },
-
+// exclui estado.
   deleteState: async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
     try {
