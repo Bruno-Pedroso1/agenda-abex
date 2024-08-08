@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import Country from "../models/Country";
 
 const CountryController = {
+  // cadastrar país.
   createCountry: async (req: Request, res: Response): Promise<void> => {
     try {
       const { name } = req.body;
@@ -13,7 +14,7 @@ const CountryController = {
       res.status(500).json({ error: "Error creating the country" });
     }
   },
-
+// exibir todos os países.
   getAllCountries: async (_req: Request, res: Response): Promise<void> => {
     try {
       const countries = await Country.findAll();
@@ -23,7 +24,7 @@ const CountryController = {
       res.status(500).json({ error: "Error getting countries" });
     }
   },
-
+// exibir país com base no seu id.
   getCountryById: async (req: Request, res: Response): Promise<void> => {
     const countryId = parseInt(req.params.id, 10);
     try {
@@ -37,7 +38,7 @@ const CountryController = {
       res.status(500).json({ error: "Error getting the country" });
     }
   },
-
+// atualizar/modificar país.
   updateCountry: async (req: Request, res: Response): Promise<void> => {
     const countryId = parseInt(req.params.id, 10);
     try {
@@ -55,7 +56,7 @@ const CountryController = {
       res.status(500).json({ error: "Error updating the country" });
     }
   },
-
+// excluir país.
   deleteCountry: async (req: Request, res: Response): Promise<void> => {
     const countryId = parseInt(req.params.id, 10);
     try {
