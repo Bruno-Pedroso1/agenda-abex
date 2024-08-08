@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import Company from "../models/Company";
 
 const CompanyController = {
+  // cadastrar empresa.
   createCompany: async (req: Request, res: Response): Promise<void> => {
     try {
       const {
@@ -27,7 +28,7 @@ const CompanyController = {
       res.status(500).json({ error: "Error creating the company" });
     }
   },
-
+// exibir todas as empresas.
   getAllCompanies: async (_req: Request, res: Response): Promise<void> => {
     try {
       const companies = await Company.findAll();
@@ -36,7 +37,7 @@ const CompanyController = {
       res.status(500).json({ error: "Error getting companies" });
     }
   },
-
+// exibir empresa pelo seu id.
   getCompanyById: async (req: Request, res: Response): Promise<void> => {
     const companyId = parseInt(req.params.id, 10);
     try {
@@ -50,7 +51,7 @@ const CompanyController = {
       res.status(500).json({ error: "Error getting the company" });
     }
   },
-
+// atualizar/modificar empresa.
   updateCompany: async (req: Request, res: Response): Promise<void> => {
     const companyId = parseInt(req.params.id, 10);
     try {
@@ -82,7 +83,7 @@ const CompanyController = {
       res.status(500).json({ error: "Error updating the company" });
     }
   },
-
+// excluir empresa.
   deleteCompany: async (req: Request, res: Response): Promise<void> => {
     const companyId = parseInt(req.params.id, 10);
     try {
@@ -97,7 +98,7 @@ const CompanyController = {
       res.status(500).json({ error: "Error deleting the company" });
     }
   },
-
+// procurar empresas pela categoria (área de atuação).
   getCompaniesByBusinessType: async (
     req: Request,
     res: Response
