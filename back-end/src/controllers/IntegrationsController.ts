@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import Integrations from "../models/Integrations";
 
 const IntegrationsController = {
+  // cadastrar integração.
   createIntegration: async (req: Request, res: Response): Promise<void> => {
     try {
       const { idBranch, type, tokenApi } = req.body;
@@ -15,7 +16,7 @@ const IntegrationsController = {
       res.status(500).json({ error: "Error creating the integration" });
     }
   },
-
+// exibir todas as integrações.
   getAllIntegrations: async (_req: Request, res: Response): Promise<void> => {
     try {
       const integrations = await Integrations.findAll();
@@ -24,7 +25,7 @@ const IntegrationsController = {
       res.status(500).json({ error: "Error getting integrations" });
     }
   },
-
+// exibir integração pelo id.
   getIntegrationById: async (req: Request, res: Response): Promise<void> => {
     const integrationId = parseInt(req.params.id, 10);
     try {
@@ -38,7 +39,7 @@ const IntegrationsController = {
       res.status(500).json({ error: "Error getting the integration" });
     }
   },
-
+// atualizar/modificar integração.
   updateIntegration: async (req: Request, res: Response): Promise<void> => {
     const integrationId = parseInt(req.params.id, 10);
     try {
@@ -54,7 +55,7 @@ const IntegrationsController = {
       res.status(500).json({ error: "Error updating the integration" });
     }
   },
-
+// excluir integração.
   deleteIntegration: async (req: Request, res: Response): Promise<void> => {
     const integrationId = parseInt(req.params.id, 10);
     try {
