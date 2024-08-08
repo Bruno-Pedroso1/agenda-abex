@@ -3,6 +3,7 @@ import PaymentVoucher from "../models/PaymentVoucher";
 import { Model, QueryTypes, Sequelize } from "sequelize";
 
 const PaymentVoucherController = {
+  // criar relação de pagamento-voucher.
   createPaymentVoucher: async (req: Request, res: Response): Promise<void> => {
     try {
       const { idPayment, idVoucher } = req.body;
@@ -18,7 +19,7 @@ const PaymentVoucherController = {
       });
     }
   },
-
+// exibir todos os pagamentos-voucher.
   getPaymentVoucherById: async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
     try {
@@ -35,7 +36,7 @@ const PaymentVoucherController = {
       });
     }
   },
-
+// atualizar/modificar pagamento-voucher por id.
   updatePaymentVoucher: async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
     const { idPayment, idVoucher } = req.body;
@@ -56,7 +57,7 @@ const PaymentVoucherController = {
       });
     }
   },
-
+// exibir todos os pagamentos-voucher.
   getAllPaymentVoucher: async (req: Request, res: Response): Promise<void> => {
     try {
       const paymentvoucher = await PaymentVoucher.findAll();
@@ -68,7 +69,7 @@ const PaymentVoucherController = {
         .json({ message: "An error occurred while fetching the payments." });
     }
   },
-
+// excluir pagamento-voucher.
   deletePaymentVoucher: async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
     try {
@@ -91,6 +92,7 @@ const PaymentVoucherController = {
       });
     }
   },
+  // exibe informações a respeito de um pagamento-voucher.
   getPayVoucherInfo: async (req: Request, res: Response): Promise<void> => {
     try {
       const response = await PaymentVoucher.sequelize?.query(
