@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import Schedules from "../models/Schedules";
 
 const SchedulesController = {
+  // cadastrar horários.
   createScheduleEntry: async (req: Request, res: Response): Promise<void> => {
     try {
       const { idSchedule, startTime, endTime, weekDay } = req.body;
@@ -19,7 +20,7 @@ const SchedulesController = {
       });
     }
   },
-
+// exibir todos os horários.
   getAllScheduleEntries: async (req: Request, res: Response): Promise<void> => {
     try {
       const scheduleEntries = await Schedules.findAll();
@@ -31,7 +32,7 @@ const SchedulesController = {
       });
     }
   },
-
+// exibir horários por id.
   getScheduleEntryById: async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
     try {
@@ -48,7 +49,7 @@ const SchedulesController = {
       });
     }
   },
-
+// atualizar/modificar horários.
   updateScheduleEntry: async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
     const { idSchedule, startTime, endTime, weekDay } = req.body;
@@ -74,7 +75,7 @@ const SchedulesController = {
       });
     }
   },
-
+// excluir horários.
   deleteScheduleEntry: async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
     try {
