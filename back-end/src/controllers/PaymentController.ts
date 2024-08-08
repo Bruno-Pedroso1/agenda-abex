@@ -3,6 +3,7 @@ import { Model, QueryTypes, Sequelize } from "sequelize";
 import Payment from "../models/Payment";
 
 const PaymentController = {
+  // cadastrar pagamento.
   createPayment: async (req: Request, res: Response): Promise<void> => {
     try {
       const { totalValue, status, idPaymentMethod, idUser } = req.body;
@@ -17,6 +18,7 @@ const PaymentController = {
       res.status(500).json({ error: "Error creating the payment" });
     }
   },
+  // exibir todos os pagementos de um usuário.
   getPayCustomer: async (req: Request, res: Response): Promise<void> => {
     try {
       const response = await Payment.sequelize?.query(
@@ -39,6 +41,7 @@ from payment p
       res.status(500).json({ error: "Erro ao buscar dados!" });
     }
   },
+  // exibir todos os pagamentos recebidos por um funcionário.
   getPaymentsAdmin: async (req: Request, res: Response): Promise<void> => {
     try {
       const response = await Payment.sequelize?.query(
@@ -61,7 +64,7 @@ from payment p
         users u ON p.id_user = u.id
     JOIN
         paymentmethods pm ON p.id_payment_method = pm.id
-    JOIN
+    JOIN.
         schedule sc ON s.id_schedule = sc.id
     JOIN
         users us ON sc.id_user = us.id
@@ -79,6 +82,7 @@ from payment p
       res.status(500).json({ error: "Erro ao buscar dados!" });
     }
   },
+  // exibir todos os pagamentos com voucher/empresa/filial/funcionário/agenda/serviço.
   getAllPaymentsFromAnyWhere: async (
     req: Request,
     res: Response
@@ -142,7 +146,7 @@ from payment p
       res.status(500).json({ error: "Erro ao buscar dados!" });
     }
   },
-
+// visualização de pagamentos (sem vouchers).
   getAllPayments: async (_req: Request, res: Response): Promise<void> => {
     try {
       const payments = await Payment.findAll();
@@ -152,7 +156,7 @@ from payment p
       res.status(500).json({ error: "Error getting payments" });
     }
   },
-
+// exibir pagamentos por id.
   getPaymentById: async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
     try {
@@ -166,7 +170,7 @@ from payment p
       res.status(500).json({ error: "Error getting the payment" });
     }
   },
-
+// atualizar/modificar pagamento por id.
   updatePayment: async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
     try {
@@ -182,7 +186,7 @@ from payment p
       res.status(500).json({ error: "Error updating the payment" });
     }
   },
-
+// excluir pagamento.
   deletePayment: async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
     try {
