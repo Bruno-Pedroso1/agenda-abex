@@ -8,6 +8,7 @@ import { error } from "console";
 import { Model, QueryTypes, Sequelize } from "sequelize";
 
 const UserController = {
+  // cadastro de usuário.
   createUser: async (req: Request, res: Response): Promise<void> => {
     try {
       const {
@@ -46,7 +47,7 @@ const UserController = {
         .json({ message: "An error occurred while creating the user." });
     }
   },
-
+// dar permissão master (dono de empresa) a um usuário.
   getMaster: async (req: Request, res: Response): Promise<void> => {
     try {
       const users = await Users.findAll({
@@ -63,7 +64,7 @@ const UserController = {
       });
     }
   },
-
+// exibir todos os clientes (qualquer empresa)
   getCustomer: async (req: Request, res: Response): Promise<void> => {
     try {
       const userscust = await Users.findAll({
@@ -80,7 +81,7 @@ const UserController = {
         .json({ message: "Ocorreu um erro ao buscar os usuários." });
     }
   },
-
+// exibir todos os usuarios.
   getAllUsers: async (req: Request, res: Response): Promise<void> => {
     try {
       const users = await Users.findAll();
@@ -92,7 +93,7 @@ const UserController = {
         .json({ message: "An error occurred while fetching the users." });
     }
   },
-
+// exibir todos os usuários que não são super administradores.
   getNonSuperadminUsers: async (req: Request, res: Response): Promise<void> => {
     try {
       const users = await Users.findAll({
@@ -111,7 +112,7 @@ const UserController = {
         .json({ message: "Ocorreu um erro ao buscar os usuários." });
     }
   },
-
+// exibe todos os admins (funcionários).
   getAdmins: async (req: Request, res: Response): Promise<void> => {
     try {
       const users = await Users.findAll({
@@ -128,7 +129,7 @@ const UserController = {
         .json({ message: "Ocorreu um erro ao buscar os administradores." });
     }
   },
-
+// exibe todos os super administradores.
   getSuperAdmin: async (req: Request, res: Response): Promise<void> => {
     try {
       const users = await Users.findAll({
@@ -145,6 +146,7 @@ const UserController = {
       });
     }
   },
+  // exibe funcionários de uma empresa.
   getAdminUsersByCompany: async (
     req: Request,
     res: Response
@@ -167,7 +169,7 @@ const UserController = {
       });
     }
   },
-
+// exibe usuário por id.
   getUserById: async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
     try {
@@ -184,7 +186,7 @@ const UserController = {
       });
     }
   },
-
+// atualiza usuário.
   updateUser: async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
     try {
@@ -215,7 +217,7 @@ const UserController = {
         .json({ message: "An error occurred while updating the user." });
     }
   },
-
+// registrar usuário (e-mail unico).
   register: async (req: Request, res: Response): Promise<void> => {
     try {
       const {
@@ -269,7 +271,7 @@ const UserController = {
       });
     }
   },
-
+// realizar login.
   login: async (req: Request, res: Response) => {
     try {
       const { email, password } = req.body;
@@ -318,7 +320,7 @@ const UserController = {
       });
     }
   },
-
+// procurar usuário por token.
   getByToken: async (req: Request, res: Response) => {
     try {
       const user = await getUserByToken.getUserByToken(
@@ -340,7 +342,7 @@ const UserController = {
       });
     }
   },
-
+// excluir usuário.
   deleteUser: async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
     try {
@@ -358,7 +360,7 @@ const UserController = {
         .json({ message: "An error occurred while deleting the user." });
     }
   },
-
+// atualiza usuário para funcionário.
   changeToAdmin: async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
     try {
@@ -378,7 +380,7 @@ const UserController = {
         .json({ message: "An error occurred while updating the user." });
     }
   },
-
+// atualiza usuário para cliente.
   changeToCustomer: async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
     try {
@@ -418,7 +420,7 @@ const UserController = {
         .json({ message: "An error occurred while updating the user." });
     }
   },
-
+// exibe todos os usuários novos nos últimos 30 dias.
   getNewUsersMonth: async (req: Request, res: Response): Promise<void> => {
     try {
       const response = await Users.sequelize?.query(
@@ -436,7 +438,7 @@ const UserController = {
       res.status(500).json({ error: "Erro ao buscar dados!" });
     }
   },
-
+// exibe novos usuários nos últimos 7 dias.
   getNewUsersWeek: async (req: Request, res: Response): Promise<void> => {
     try {
       const response = await Users.sequelize?.query(
@@ -454,7 +456,7 @@ const UserController = {
       res.status(500).json({ error: "Erro ao buscar dados!" });
     }
   },
-
+// valida token.
   validate: async (req: any, res: any): Promise<void> => {
     try {
       let token: string = req.headers.authorization;
