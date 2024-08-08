@@ -6,6 +6,7 @@ import Services from "../models/Services";
 import { sequelize } from "../config/config";
 
 const SchedulingController = {
+  // cadastrar agendamento.
   createScheduling: async (req: Request, res: Response): Promise<void> => {
     try {
       const { dataScheduling, status, timeScheduling, idSchedule, idPayment } =
@@ -27,7 +28,7 @@ const SchedulingController = {
         .json({ message: "An error occurred while creating the scheduling." });
     }
   },
-
+// exibir todos os agendamentos.
   getAllSchedulings: async (req: Request, res: Response): Promise<void> => {
     try {
       const schedulings = await Scheduling.findAll();
@@ -38,7 +39,7 @@ const SchedulingController = {
         .json({ message: "An error occurred while fetching schedulings." });
     }
   },
-
+// exibir agendamento por id.
   getSchedulingById: async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
     try {
@@ -54,7 +55,7 @@ const SchedulingController = {
         .json({ message: "An error occurred while fetching the scheduling." });
     }
   },
-
+// atualizar/modificar agendamento.
   updateScheduling: async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
     const { dataScheduling, status, timeScheduling, idSchedule, idPayment } =
@@ -80,7 +81,7 @@ const SchedulingController = {
         .json({ message: "An error occurred while updating the scheduling." });
     }
   },
-
+// excluir agendamento.
   deleteScheduling: async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
     try {
@@ -98,6 +99,7 @@ const SchedulingController = {
         .json({ message: "An error occurred while deleting the scheduling." });
     }
   },
+  // exibe dados de agendamento.
   getDadosScheduling: async (req: Request, res: Response): Promise<void> => {
     try {
       const response = await Scheduling.sequelize?.query(
@@ -145,6 +147,7 @@ const SchedulingController = {
       res.status(500).json({ error: "Erro ao buscar dados!" });
     }
   },
+  // exibe informações de agendamento.
   getDetails: async (req: Request, res: Response): Promise<void> => {
     try {
       const response = await Scheduling.sequelize?.query(
@@ -195,7 +198,7 @@ const SchedulingController = {
       res.status(500).json({ error: "Erro ao buscar dados!" });
     }
   },
-
+// exibe serviço mais agendado.
   getTopService: async (req: Request, res: Response): Promise<void> => {
     try {
       const response = await Scheduling.sequelize?.query(
