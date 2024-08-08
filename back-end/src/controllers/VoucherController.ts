@@ -6,6 +6,7 @@ import { QueryTypes } from "sequelize";
 import { Op } from "sequelize";
 
 const VoucherController = {
+  // cadastrar voucher.
   createVoucher: async (req: Request, res: Response): Promise<void> => {
     try {
       const { idBranch, price, creditsValue } = req.body;
@@ -22,7 +23,7 @@ const VoucherController = {
         .json({ message: "An error occurred while creating the voucher." });
     }
   },
-
+// exibir todos os vouchers.
   getAllVoucher: async (req: Request, res: Response): Promise<void> => {
     try {
       const vouchers = await Voucher.findAll();
@@ -34,7 +35,7 @@ const VoucherController = {
         .json({ message: "An error occudddrred while fetching vouchers." });
     }
   },
-
+// exibe voucher por id de filial.
   getVouchersByBranchId: async (req: Request, res: Response): Promise<void> => {
     const { idBranch } = req.params;
 
@@ -55,7 +56,7 @@ const VoucherController = {
         .json({ message: "An error occurred while fetching vouchers." });
     }
   },
-
+// exibe voucher por id.
   getVoucherById: async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
     try {
@@ -72,7 +73,7 @@ const VoucherController = {
         .json({ message: "An error occurred while fetching the Voucher." });
     }
   },
-
+// atualiza/modifica voucher.
   updateVoucher: async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
     const { idBranch, price, creditsValue } = req.body;
@@ -95,7 +96,7 @@ const VoucherController = {
         .json({ message: "An error occurred while updating the Voucher." });
     }
   },
-
+// exclui voucher.
   deleteVoucher: async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
     try {
@@ -113,7 +114,7 @@ const VoucherController = {
         .json({ message: "An error occurred while deleting the Voucher." });
     }
   },
-
+// procura voucher por filial com mais informações.
   getVoucherByBranches: async (req: Request, res: Response): Promise<void> => {
     try {
       const response = await Voucher.sequelize?.query(
@@ -133,7 +134,7 @@ const VoucherController = {
       res.status(500).json({ error: "Erro ao buscar dados!" });
     }
   },
-
+// exibe vouchers por id de empresa.
   getVouchersByCompanyId: async (
     req: Request,
     res: Response
