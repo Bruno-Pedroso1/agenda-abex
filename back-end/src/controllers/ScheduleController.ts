@@ -3,6 +3,7 @@ import Schedule from "../models/Schedule";
 import { QueryTypes } from "sequelize";
 
 const ScheduleController = {
+  // cadastrar agenda.
   createSchedule: async (req: Request, res: Response): Promise<void> => {
     try {
       const {
@@ -29,7 +30,7 @@ const ScheduleController = {
         .json({ message: "An error occurred while creating the schedule." });
     }
   },
-
+// exibir todas as agendas.
   getAllSchedule: async (req: Request, res: Response): Promise<void> => {
     try {
       const schedules = await Schedule.findAll();
@@ -41,6 +42,7 @@ const ScheduleController = {
         .json({ message: "An error occurred while fetching schedules." });
     }
   },
+  // exibir agendas por filial.
   getScheduleByBranch: async (req: Request, res: Response): Promise<void> => {
     const { id_branch } = req.query;
 
@@ -58,7 +60,7 @@ const ScheduleController = {
       res.status(500).json({ error: "Error getting schedules by branch" });
     }
   },
-
+// exibir agenda por id.
   getScheduleById: async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
     try {
@@ -75,7 +77,7 @@ const ScheduleController = {
         .json({ message: "An error occurred while fetching the schedule." });
     }
   },
-
+// atualizar/modificar agenda.
   updateSchedule: async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
     const {
@@ -108,7 +110,7 @@ const ScheduleController = {
         .json({ message: "An error occurred while updating the schedule." });
     }
   },
-
+// excluir agenda.
   deleteSchedule: async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
     try {
@@ -126,7 +128,7 @@ const ScheduleController = {
         .json({ message: "An error occurred while deleting the schedule." });
     }
   },
-
+// exibe informações do serviço prestado.
   getDadosServices: async (req: Request, res: Response): Promise<void> => {
     try {
       const response = await Schedule.sequelize?.query(
