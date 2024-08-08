@@ -5,6 +5,7 @@ import { QueryTypes, Sequelize } from "sequelize";
 import { type } from "os";
 
 const BranchController = {
+  // cadastrar filial.
   createBranch: async (req: Request, res: Response): Promise<void> => {
     try {
       const {
@@ -33,6 +34,7 @@ const BranchController = {
         .json({ message: "An error occurred while creating the branch." });
     }
   },
+  // procurar filiais de uma empresa pelo id da mesma.
   getBranchesByCompany: async (req: Request, res: Response): Promise<void> => {
     const { id_company } = req.query;
 
@@ -52,7 +54,7 @@ const BranchController = {
       res.status(500).json({ error: "Error getting branches by id_company" });
     }
   },
-
+// procurar todas as filiais.
   getAllBranches: async (req: Request, res: Response): Promise<void> => {
     try {
       const branches = await Branch.findAll();
@@ -61,7 +63,7 @@ const BranchController = {
       res.status(500).json({ error: "Error getting branches." });
     }
   },
-
+// procurar filial especifica pelo id.
   getBranchById: async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
     try {
@@ -75,7 +77,7 @@ const BranchController = {
       res.status(500).json({ error: "Error getting branch." });
     }
   },
-
+// atualizar/modificar filialo pelo seu id.
   updateBranch: async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
 
@@ -111,7 +113,7 @@ const BranchController = {
         .json({ message: "An error occurred while updating the branch." });
     }
   },
-
+// excluir filial.
   deleteBranch: async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
     try {
@@ -127,7 +129,7 @@ const BranchController = {
       res.status(500).json({ error: "Error deleting branch." });
     }
   },
-
+// ver todas as filiais que um usuário é vinculado.
   getBranchesByUser: async (req: Request, res: Response): Promise<void> => {
     try {
       const response = await Branch.sequelize?.query(
