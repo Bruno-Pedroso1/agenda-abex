@@ -2,6 +2,8 @@ import { Request, Response } from "express";
 import Addresses, { AddressAttributes } from "../models/Addresses";
 
 const AddressesController = {
+
+  // cadastro de endereço.
   createAddress: async (req: Request, res: Response): Promise<void> => {
     try {
       const { zipCode, district, street, number, complement, idCity } =
@@ -22,6 +24,7 @@ const AddressesController = {
         .json({ message: "An error occurred while creating the address." });
     }
   },
+  // ver todos os endereços cadastrados.
   getAllAddresses: async (req: Request, res: Response): Promise<void> => {
     try {
       const addresses = await Addresses.findAll();
@@ -30,7 +33,7 @@ const AddressesController = {
       res.status(500).json({ error: "Failed to get addresses." });
     }
   },
-
+  // procurar endereço por id.
   getAddressById: async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
     try {
@@ -44,7 +47,7 @@ const AddressesController = {
       res.status(500).json({ error: "Failed to get address." });
     }
   },
-
+// atualizar/modificar endereço baseado em seu id.
   updateAddress: async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
     const { zipCode, district, street, number, complement, idCity } = req.body;
@@ -70,7 +73,7 @@ const AddressesController = {
         .json({ message: "An error occurred while updating the address." });
     }
   },
-
+// excluir endereço.
   deleteAddress: async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
     try {
