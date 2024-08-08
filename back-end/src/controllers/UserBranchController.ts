@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import UserBranch from "../models/UserBranch";
 
 const UserBranchController = {
+  // procurar relação filial-usuário por id.
   getBranchByUserId: async (req: Request, res: Response): Promise<void> => {
     try {
       const { idUser } = req.params;
@@ -27,6 +28,7 @@ const UserBranchController = {
       });
     }
   },
+  // criar relação filial-usuário.
   createUserBranch: async (req: Request, res: Response): Promise<void> => {
     try {
       const { idBranch, idUser, credits } = req.body;
@@ -39,6 +41,7 @@ const UserBranchController = {
         .json({ message: "An error occurred while creating the User Branch." });
     }
   },
+  // excluir relação filial-usuário.
   deleteUserBranchByIdNovo: async (
     req: Request,
     res: Response
@@ -67,6 +70,7 @@ const UserBranchController = {
       });
     }
   },
+  // criar relação filial-usuário.
   createUserBranchNovo: async (req: Request, res: Response): Promise<void> => {
     try {
       const { idUser, idBranch } = req.params;
@@ -87,6 +91,7 @@ const UserBranchController = {
       });
     }
   },
+  // procurar relação filial-usuário por id do usuário e filial.
   getUserBranchByIdNovo: async (req: Request, res: Response): Promise<void> => {
     try {
       const { idUser, idBranch } = req.params;
@@ -109,7 +114,7 @@ const UserBranchController = {
       });
     }
   },
-
+// procurar relação filial-usuário por id.
   getUserBranchById: async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
     try {
@@ -129,7 +134,7 @@ const UserBranchController = {
       });
     }
   },
-
+// atualizar/modificar filial-usuario.
   updateUserBranch: async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
     const { idUser, idBranch, credits } = req.body;
@@ -153,7 +158,7 @@ const UserBranchController = {
       });
     }
   },
-
+// exibe todos as filiais-usuário.
   getAllUsersBranch: async (req: Request, res: Response): Promise<void> => {
     try {
       const users = await UserBranch.findAll();
@@ -165,6 +170,7 @@ const UserBranchController = {
         .json({ message: "An error occurred while fetching the users." });
     }
   },
+  // atualizar/modificar créditos de um usuário em uma filial.
   updateUserBranchCredits: async (
     req: Request,
     res: Response
@@ -197,6 +203,7 @@ const UserBranchController = {
       });
     }
   },
+  // excluir relação filial-usuário.
   deleteUserBranch: async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
     try {
