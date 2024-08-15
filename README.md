@@ -220,3 +220,203 @@ create table payment_voucher(
     foreign key (id_voucher) references voucher(id)
 );
 
+
+
+
+create table pais (
+    id serial primary key,
+    nome varchar(40) not null unique,
+    created_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+create table estado (
+    id serial primary key,
+    nome varchar(40) not null,
+    id_pais int not null,
+    created_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    foreign key (id_pais) references pais(id)
+);
+
+create table cidade (
+    id serial primary key,
+    nome varchar(40) not null,
+    id_estado int not null,
+        created_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    foreign key (id_estado) references estado(id)
+);
+
+create table enderecos (
+    id serial primary key,
+    cep varchar(10) not null,
+    bairro varchar(50) not null,
+    rua varchar(50) not null,
+    numero int not null,
+    complemento varchar(100) not null,
+    id_cidade int not null,
+        created_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    foreign key (id_cidade) references cidade(id)
+);
+
+create table empresas (
+    id serial primary key,
+    cnpj varchar(20) unique not null,
+    categoria varchar(40) not null,
+    logo varchar(500) unique not null,
+    nome varchar(100) unique not null,
+    telefone varchar(16) not null unique,
+    email varchar(80) not null unique,
+    id_endereco int not null,
+        created_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    foreign key (id_endereco) references enderecos(id)
+);
+
+create table filiais (
+    id serial primary key,
+    cnpj varchar(20) unique not null,
+    email varchar(80) unique not null,
+    nome_fantasia varchar(100) not null,
+    nome varchar(100) not null unique,
+    id_empresa int not null,
+    id_endereco int not null,
+        created_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    foreign key (id_empresa) references empresas(id),
+    foreign key (id_endereco) references enderecos(id)
+);
+
+create table integracoes (
+    id serial primary key,
+    tipo varchar(100) not null ,
+    token_api varchar(500) not null,
+    id_filial int not null,
+        created_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    foreign key (id_filial) references filiais(id)
+);
+
+create table servicos(
+    id serial primary key,
+    imagem varchar(500) not null,
+    nome varchar(40) not null,
+    descricao varchar(40) not null,
+    id_filial int not null,
+    created_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    foreign key (id_filial) references filiais(id)
+);
+
+create table metodo_pagamento(
+    id serial primary key,
+    id_filial int not null,
+    id_integracao int not null,
+    tipo varchar(100) not null,
+    descricao varchar(255) not null,
+        created_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    foreign key (id_filial) references filiais(id),
+    foreign key (id_integracao) references integracoes(id)
+);
+
+create table usuarios (
+    id serial primary key,
+    nome varchar(100) not null,
+    foto varchar(500),
+    cpf varchar(18) not null unique,
+    telefone varchar(16) not null unique,
+    password_hash varchar(500),
+    email varchar(80) not null unique,
+    cargo varchar(10) not null,
+    token varchar(500),
+    id_endereco int,
+    permissao varchar(10),
+    id_empresa int,
+    especializacao varchar(25),
+    created_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    foreign key (id_endereco) references enderecos(id),
+    foreign key (id_empresa) references empresas(id)
+);
+
+create table usuario_filial (
+    id serial primary key,
+    id_filial int not null,
+    id_usuario int not null,
+    creditos float,
+        created_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    foreign key (id_filial) references filiais(id),
+    foreign key (id_usuario) references usuarios(id)
+);
+
+create table agenda (
+    id serial primary key,
+    valor float not null,
+    taxa_cancelamento float not null,
+    tempo_reagendar int not null,
+    id_filial int not null,
+    id_usuario int not null,
+    id_servico int not null,
+        created_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    foreign key (id_filial) references filiais(id),
+    foreign key (id_usuario) references usuarios(id),
+    foreign key (id_servico) references servicos(id)
+);
+
+create table pagamentos (
+    id serial primary key,
+    valor_total float not null,
+    status varchar(25) not null,
+    id_usuario int not null,
+    id_metodo_pagamento int not null,
+        created_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    foreign key (id_usuario) references usuarios(id),
+    foreign key (id_metodo_pagamento) references metodo_pagamento(id)
+);
+create table horarios (
+    id serial primary key,
+    horario_inicio time not null,
+    horario_final time not null,
+    dia_semana int not null,
+    id_agenda int not null,
+        created_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    foreign key (id_agenda) references agenda(id)
+);
+
+create table voucher (
+    id serial primary key,
+    valor_creditos float not null,
+    preco float not null,
+    id_filial int not null,
+    foreign key (id_filial) references filiais(id)
+);
+
+create table agendamento (
+    id serial primary key,
+    data_agendamento date not null,
+    status varchar(25) not null,
+    horario time not null,
+    id_agenda int not null,
+    id_pagamento int not null,
+        created_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    foreign key (id_agenda) references agenda(id),
+    foreign key (id_pagamento) references pagamentos(id)
+);
+
+create table pagamento_voucher(
+    id serial primary key,
+    id_pagamento int not null,
+    id_voucher int not null,
+        created_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    foreign key (id_pagamento) references pagamentos(id),
+    foreign key (id_voucher) references voucher(id)
+);
