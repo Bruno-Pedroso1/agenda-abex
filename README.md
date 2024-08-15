@@ -146,7 +146,9 @@ create table user_branch (
     id_user int not null,
     credits float,
         created_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    updated_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    foreign key (id_branch) references branches(id),
+    foreign key (id_user) references users(id)
 );
 
 create table schedule (
