@@ -1,9 +1,9 @@
 <template>
   <v-app light>
     <v-navigation-drawer v-model="drawer" :clipped="clipped" color="#000" app>
-      <h1 style="font-size: 60px; color: #fff" class="text-center mt-5">
-        TimelyAPP<span style="font-size: 30px">onnect </span>
-      </h1>
+      <h6 style="font-size: 30px; color: #fff" class="text-center mt-5 mb-5">
+        TimelyAPP
+      </h6>
       <v-divider class="white"></v-divider>
       <v-row class="justify-center">
         <v-btn

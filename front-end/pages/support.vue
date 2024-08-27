@@ -23,11 +23,11 @@
             <v-row>
               <v-col>
                 <a href="mailto:exemplo@gmail.com">
-                  <h3>
+                  <h3 class="mt-5">
                     <v-icon small class="blue--text">
                       mdi-email
                     </v-icon> 
-                    ixc@ixcsoft.com.br
+                    TimelyAPP@timely.com
                   </h3>
                 </a>
               </v-col>
@@ -50,11 +50,11 @@
           <v-card-text class="black--text">
             <v-row>
               <v-col>
-                <h3>
+                <h3 class="mt-5">
                   <v-icon small class="mb-1 black--text">
                     mdi-phone
                   </v-icon> 
-                  (49) 3199-2580
+                  (53) 01234-5678
                 </h3>
               </v-col>
             </v-row>
@@ -94,7 +94,7 @@
                     class="ml-1 mr-1"
                     v-bind="attrs"
                     v-on="on"
-                    href="https://www.facebook.com/groups/ixcsoft/">
+                    href="https://www.facebook.com">
                       <v-icon color="#0000FF">mdi-facebook</v-icon>
                     </v-btn>
                   </template>
@@ -106,7 +106,7 @@
                     fab
                     v-bind="attrs"
                     v-on="on"
-                    href="https://www.instagram.com/ixcsoft/">
+                    href="https://www.instagram.com">
                       <v-icon>mdi-instagram</v-icon>
                     </v-btn>
                   </template>
@@ -121,7 +121,7 @@
                     fab
                     v-bind="attrs"
                     v-on="on"
-                    href="https://br.linkedin.com/company/ixcsoft">
+                    href="https://br.linkedin.com">
                       <v-icon color="#0E76A8">mdi-linkedin</v-icon>
                     </v-btn>
                   </template>

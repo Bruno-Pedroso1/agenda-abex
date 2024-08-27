@@ -2,13 +2,8 @@
   <v-container>
     <v-form @submit.prevent="login">
       <v-row class="justify-center">
-        <v-img
-          max-width="150"
-          max-height="209"
-          src="https://cdn.discordapp.com/attachments/1148348260533162005/1151211445674070027/image.png"
-        >
-        </v-img>
-        <h1 style="font-size: 60px" class="mt-16">
+
+        <h1 style="font-size: 60px" class="justify-center mt-15">
           TimelyAPP
         </h1>
       </v-row>
@@ -71,37 +66,12 @@
       Acessar com
       <v-col cols="2"><v-divider class="black"></v-divider></v-col>
     </v-row>
-
     <v-row class="justify-center mb-5">
-      <v-btn
-        style="background-color: #212121"
-        elevation="8"
-        outlined
-        color="#fff"
-        height="75"
-        @click="GoogleLogin"
-      >
-        <v-img
-          max-width="48"
-          max-height="48"
-          src="https://cdn.discordapp.com/attachments/1148348260533162005/1148365779201429625/image.png"
-        ></v-img>
-      </v-btn>
-      <v-btn
-        style="background-color: #212121"
-        class="ms-5"
-        elevation="8"
-        outlined
-        color="#fff"
-        height="75"
-        @click="ssoLogin"
-      >
-        <v-img
-          max-width="48"
-          max-height="40"
-          src="https://zapisp.com.br/public/ixc.png"
-        ></v-img>
-      </v-btn>
+      <v-icon  @click="GoogleLogin" size="50px">
+         mdi-google
+
+      </v-icon>
+
     </v-row>
     <v-row class="justify-center">
       <span>Ainda não possui conta? <a href="/register">Cadastre-se</a></span>
@@ -143,11 +113,12 @@ export default {
     };
   },
   created() {
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.has("code")) {
-      this.handleAuthorizationCode();
-    }
-  },
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.has("code")) {
+    this.handleAuthorizationCode();
+  }
+},
+
 
   methods: {
     async getUserByToken() {
@@ -167,33 +138,42 @@ export default {
       }
     },
     async handleAuthorizationCode() {
-      try {
-        const urlParams = new URLSearchParams(window.location.search);
-        const code = urlParams.get("code");
+  try {
+    const urlParams = new URLSearchParams(window.location.search);
+    const code = urlParams.get("code");
+    console.log("Código de autorização recebido:", code);
+    const response = await this.$api.post("/google/codeForToken", { code });
 
-        const response = await this.$api.post("/google/codeForToken", { code });
-        console.log("teste 46 response handle", response);
+    if (response.data && response.data.access_token) {
+      localStorage.setItem("toksen", response.data.access_token);
+      const userData = await this.$api.get("/api/users/by-token");
+      this.user = {
+        email: userData.data.email,
+        role: userData.data.role,
+        name: userData.data.name,
+        id: userData.data.id,
+        idCompany: userData.data.idCompany,
+      };
 
-        localStorage.setItem("toksen", response.access_token);
-        console.log("user", this.user);
-        const data = await this.$api.get("/api/users/by-token");
-        console.log("DATATATAA ,", data);
-        // this.user = {
-        //   email: response.user.email,
-        //   role: response.user.role,
-        //   name: response.user.name,
-        //   id: response.user.id,
-        // };
-        // console.log(this.user);
-        if (response.user.role === "customer") {
-          this.$router.push("/userHome");
-        } else {
-          console.log("teste 93");
-        }
-      } catch (error) {
-        console.error(error);
+      if (this.user.role === "customer") {
+        this.$router.push("/userHome");
+      } else if (this.user.role === "superadmin") {
+        this.$router.push("/superadmin/company");
+      } else if (this.user.role === "admin") {
+        this.$router.push("/admin/dashboard");
+      } else {
+        this.$router.push("/");
       }
-    },
+    } else {
+      this.$toast.error("Erro ao obter o token de acesso.");
+    }
+  } catch (error) {
+    console.error("Erro durante o processamento do código de autorização:", error);
+    this.$toast.error("Erro durante o login com Google.");
+  }
+},
+
+
     async login() {
       const request = {
         email: this.email,
@@ -234,6 +214,8 @@ export default {
         const authUrl = data.authUrl;
 
         window.location.href = authUrl;
+        console.log('aedsgfsdg');
+        
       } catch (error) {
         console.error("Erro durante o login do Google:", error);
         this.$toast.error("Erro durante o login do Google");

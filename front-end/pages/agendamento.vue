@@ -1,15 +1,15 @@
 <template>
   <v-container>
     <header class="text-center mb-5">
-      <h1>dsfsdf sdffdfd sdfsdff</h1>
+
     </header>
 
     <v-row>
       <v-col cols="12" md="6">
         <v-card class="mb-3">
-          <v-card-title>xzcsf</v-card-title>
+          <v-card-title>Detalhes</v-card-title>
           <v-card-text>
-            <p>Agenda ID: {{ detalhesAgenda.id }}</p>
+    
             <p>
               Profissional:
               {{
@@ -117,23 +117,19 @@
               </v-row>
             </v-card-title>
             <v-card-text>
-              <v-row>
-                <v-col class="text-center" cols="4">
-                  <v-avatar style="border: 2px solid #d7d7d7" size="100">
-                    <v-img
-                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYHwxmmhVawXwKrQEMgF-hHs_JRJy4U2x1wA&usqp=CAU"
-                    ></v-img>
-                  </v-avatar>
-                </v-col>
-                <v-col cols="8">
-                  <h1 class="black--text mt-4 mb-4">Dental Dura</h1>
-                  <a href="">
-                    <h4>
-                      R. São domingos, 333 - Líder, Chapecó - SC, 89805-273
-                      <v-icon color="blue"> mdi-arrow-right </v-icon>
-                    </h4>
-                  </a>
-                </v-col>
+              <v-row class="d-flex align-center justify-center"s>
+
+                <v-col class="text-center justify-center" cols="8">
+    <h1 class="black--text mt-4 mb-4">{{ nomeFilial }}</h1>
+
+    <a href="">
+      <h4>
+        {{ endereco.street }}, {{ endereco.number }} - {{ endereco.district }},
+        {{ endereco.zipCode }} - {{ endereco.complement }}
+        <v-icon color="blue"> mdi-arrow-right </v-icon>
+      </h4>
+    </a>
+  </v-col>
               </v-row>
               <v-divider
                 style="box-shadow: 0px 2px 3px #000"
@@ -309,10 +305,19 @@ export default {
       paymentMethods: [],
       dadosAgendamentos: {},
       dadosFuncionario: {},
+      nomeFilial: '',
+      endereco: {
+      zipCode: '',
+      district: '',
+      street: '',
+      number: null,
+      complement: ''
+    }
     };
   },
 
   created() {
+    console.log("Agenda ID na criação:", this.agendaId)
     this.agendaId = this.$route.params.idAgenda;
     this.idProfissional = this.$route.params.idProfissional;
     this.nomeProfissional = this.$route.params.nomeProfissional;
@@ -550,22 +555,42 @@ export default {
     },
 
     async getSchedule() {
-      try {
-        if (this.agendaId) {
-          const response = await this.$api.get(
-            `/api/schedule/${this.agendaId}`
-          );
-          this.detalhesAgenda = response;
-          const idBranch = response.idBranch;
-          this.idFilialAtual = idBranch;
-        } else {
-          this.$toast.error("Selecione uma categoria primeiro");
-          return this.$router.push("/categories");
-        }
-      } catch (error) {
-        this.$toast.error(error.message);
-      }
-    },
+  try {
+    if (this.agendaId) {
+      const response = await this.$api.get(`/api/schedule/${this.agendaId}`);
+      this.detalhesAgenda = response;
+      const idBranch = response.idBranch;
+      this.idFilialAtual = idBranch;
+
+      // Buscar o nome da filial usando o idBranch
+      const branchResponse = await this.$api.get(`/api/branches/${idBranch}`);
+      this.nomeFilial = branchResponse.tradingName;
+
+      // Buscar o endereço associado ao idBranch
+      const addressId = branchResponse.idAddresses;
+      const addressResponse = await this.$api.get(`/api/addresses/${addressId}`);
+      this.endereco = {
+        zipCode: addressResponse.zipCode,
+        district: addressResponse.district,
+        street: addressResponse.street,
+        number: addressResponse.number,
+        complement: addressResponse.complement
+      };
+      
+      console.log("Endereço:", this.endereco); // Adicione para depuração
+    } else {
+      this.$toast.error("Selecione uma categoria primeiro");
+      return this.$router.push("/categories");
+    }
+  } catch (error) {
+    console.error(error);
+    this.$toast.error(error.message);
+  }
+},
+
+
+
+    
   },
 };
 </script>

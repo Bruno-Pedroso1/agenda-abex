@@ -1,8 +1,8 @@
 <template>
   <v-app>
     <v-navigation-drawer v-model="drawer" :clipped="clipped" color="#000" app>
-      <h1 style="font-size: 60px; color: #fff" class="text-center mt-5">
-        TimelyAPP<span style="font-size: 30px">onnect </span>
+      <h1 style="font-size: 40px; color: #fff" class="text-center mt-5">
+        TimelyAPP
       </h1>
       <v-row class="justify-center">
         <v-col md="10">

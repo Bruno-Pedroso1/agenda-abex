@@ -11,7 +11,7 @@
           <v-row class="justify-center" style="gap: 30px">
             <h1
               class="white--text mt-5"
-              style="font-size: 40px; font-weight: 300"
+              style="font-size: 30px; font-weight: 300"
             >
               TimelyAPP
             </h1>

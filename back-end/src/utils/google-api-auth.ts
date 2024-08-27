@@ -5,6 +5,7 @@ import { google, Auth } from "googleapis";
 
 const JWT_SECRET = "toksen";
 const AUTH_SCOPES = [
+  "https://www.googleapis.com/auth/userinfo.email",
   "https://www.googleapis.com/auth/contacts",
   "https://www.googleapis.com/auth/contacts.readonly",
   "https://www.googleapis.com/auth/directory.readonly",
@@ -17,7 +18,6 @@ const AUTH_SCOPES = [
   "https://www.googleapis.com/auth/user.gender.read",
   "https://www.googleapis.com/auth/user.organization.read",
   "https://www.googleapis.com/auth/user.phonenumbers.read",
-  "https://www.googleapis.com/auth/userinfo.email",
   "https://www.googleapis.com/auth/userinfo.profile",
 ];
 
@@ -71,35 +71,34 @@ export async function exchangeCodeForToken(
       res.status(400).json({ error: "Authorization code not provided." });
       return;
     }
-    const tokens = await getTokens(code);
+
+    const tokens = await getTokens(code);  // Obtem os tokens do Google usando o código de autorização
     if (tokens.access_token) {
-      const accessToken = tokens.access_token ?? "";
+      const accessToken = tokens.access_token;
       const refreshToken = tokens.refresh_token ?? "";
       const userInfo = await getUserInfo(accessToken, refreshToken);
       const existingUser = await findUserByGoogleEmail(userInfo.email);
 
+      let user;
       if (existingUser) {
-        const updatedUser = await updateUser(existingUser, userInfo);
-        const jwtToken = generateJWT(existingUser.id);
-        res.json({
-          access_token: tokens.access_token,
-          id_token: tokens.id_token,
-          jwt_token: jwtToken,
-          user_info: userInfo,
-          user: updatedUser,
-        });
+        user = await updateUser(existingUser, userInfo);
       } else {
-        const user = await insertUserInfo(userInfo as any);
+        user = await insertUserInfo(userInfo as any);
         await updateTaxIdentificationNumber(user, user.id);
-        const jwtToken = generateJWT(user.id); // Gerar token JWT com o ID do novo usuário
-        res.json({
-          access_token: tokens.access_token,
-          id_token: tokens.id_token,
-          jwt_token: jwtToken, // Enviar o token JWT para o frontend
-          user_info: userInfo,
-          user,
-        });
       }
+
+      // Aqui estamos gerando o JWT para o usuário autenticado ou recém-criado
+      const jwtToken = generateJWT(user.id);
+
+      // Responder com todos os tokens (JWT e tokens do Google)
+      res.json({
+        access_token: accessToken,
+        id_token: tokens.id_token,
+        jwt_token: jwtToken,
+        user_info: userInfo,
+        user: user,
+      });
+
     } else {
       console.error("Error getting access token.");
       res.status(500).json({ error: "Error getting access token." });
@@ -109,6 +108,7 @@ export async function exchangeCodeForToken(
     res.status(500).json({ error: "Server error." });
   }
 }
+
 
 async function updateUser(existingUser: Users, userInfo: any) {
   try {

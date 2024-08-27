@@ -30,8 +30,8 @@ const PaymentController = {
     p.id_payment_method as paymethodid,
     pm.type
 
-from payment p
- join paymentmethods pm on p.id_payment_method = pm.id;
+from payments p
+ join payment_methods pm on p.id_payment_method = pm.id;
         `,
         { type: QueryTypes.SELECT }
       );
@@ -46,6 +46,7 @@ from payment p
     try {
       const response = await Payment.sequelize?.query(
         `
+
         SELECT DISTINCT ON (p.id)
         ser.name as nomeservico,
         s.status,
@@ -59,12 +60,12 @@ from payment p
     FROM
         scheduling s
     JOIN
-        payment p ON s.id_payment = p.id
+        payments p ON s.id_payment = p.id
     JOIN
         users u ON p.id_user = u.id
     JOIN
-        paymentmethods pm ON p.id_payment_method = pm.id
-    JOIN.
+        payment_methods pm ON p.id_payment_method = pm.id
+    JOIN
         schedule sc ON s.id_schedule = sc.id
     JOIN
         users us ON sc.id_user = us.id
@@ -110,7 +111,7 @@ from payment p
         us.name as employee_name,
         s.status as statusAg
     FROM
-        payment p
+        payments p
     LEFT JOIN
         scheduling s ON p.id = s.id_payment
     LEFT JOIN
@@ -118,7 +119,7 @@ from payment p
     LEFT JOIN
         users us ON sc.id_user = us.id
     LEFT JOIN
-        branch b ON sc.id_branch = b.id
+        branches b ON sc.id_branch = b.id
     LEFT JOIN
         LATERAL (
             SELECT id_voucher
@@ -128,13 +129,13 @@ from payment p
     LEFT JOIN
         vouchers v ON pv.id_voucher = v.id
     LEFT JOIN
-        branch branch_voucher ON v.id_branch = branch_voucher.id
+        branches branch_voucher ON v.id_branch = branch_voucher.id
     LEFT JOIN
         services serv ON sc.id_services = serv.id
     LEFT JOIN
         users u ON p.id_user = u.id
     LEFT JOIN
-        paymentmethods pm ON p.id_payment_method = pm.id
+        payment_methods pm ON p.id_payment_method = pm.id
     ORDER BY
         p.id;
         `,
