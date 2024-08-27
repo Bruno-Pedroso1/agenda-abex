@@ -130,10 +130,10 @@ const SchedulingController = {
         b.trading_name as "branchName"
         FROM "scheduling" sl
         JOIN "schedule" sd ON sl.id_schedule = sd.id
-        join branch b on sd.id_branch = b.id
-        join company c on b.id_company = c.id
+        join branches b on sd.id_branch = b.id
+        join companies c on b.id_company = c.id
         JOIN "schedules" ss ON sd.id = ss.id_schedule
-        join payment as p on sl.id_payment = p.id
+        join payments as p on sl.id_payment = p.id
         join users as u on p.id_user = u.id
         WHERE ss.start_time::time = sl.time_scheduling::time
         AND ss.id_schedule = sl.id_schedule
@@ -178,13 +178,13 @@ const SchedulingController = {
         cmp.id as "idEmpresaC"
       from "scheduling" as sling
       join "schedule" as sle on sling.id_schedule = sle.id
-    join branch as bra on sle.id_branch = bra.id
-          join company as cmp on bra.id_company = cmp.id
+    join branches as bra on sle.id_branch = bra.id
+          join companies as cmp on bra.id_company = cmp.id
       join users as us on sle.id_user = us.id
       join "services" as s on sle.id_services = s.id
-      join "payment" as pay on sling.id_payment = pay.id
+      join "payments" as pay on sling.id_payment = pay.id
       join "users" as u on pay.id_user = u.id
-      join "paymentmethods" as payM on pay."id_payment_method" = payM.id
+      join "payment_methods" as payM on pay."id_payment_method" = payM.id
       join "schedules" as sles on sle.id = sles.id_schedule
       WHERE sling.time_scheduling::time = sles.start_time::time
       AND sles.id_schedule = sling.id_schedule

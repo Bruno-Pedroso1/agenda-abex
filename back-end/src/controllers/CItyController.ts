@@ -99,33 +99,33 @@ const CityController = {
     }
   },
 
- // newCreateCity: async (req: Request, res: Response): Promise<void> => {
- //   try {
- //     const { cidade, estado } = req.params;
-//
- //     let whereCondition: WhereOptions<City> | undefined;
- //     if (cidade && estado) {
-//        const cityName = String(cidade);
- //       const stateId = Number(estado);
- //       whereCondition = { name: cityName, idState: stateId };
- //     }
-//
- //     const city = await City.findOne({ where: whereCondition });
- //     if (city) {
-//        res.status(400).json({ message: "City already exists in the state" });
-  //    } else {
- //       const cityName = String(cidade);
-  //      const stateId = Number(estado);
-  //      const newCity = await City.create({ name: cityName, idState: stateId });
-   //     res.status(201).json(newCity);
-  //    }
-  //  } catch (error) {
-  //    console.error(error);
-  //    res
-  //      .status(500)
-  //      .json({ message: "An error occurred while creating the city." });
-  //  }
- // },
+newCreateCity: async (req: Request, res: Response): Promise<void> => {
+  try {
+    const { cidade, estado } = req.params;
+
+    let whereCondition: WhereOptions<City> | undefined;
+    if (cidade && estado) {
+        const cityName = String(cidade);
+      const stateId = Number(estado);
+      whereCondition = { name: cityName, idState: stateId };
+    }
+
+    const city = await City.findOne({ where: whereCondition });
+    if (city) {
+        res.status(400).json({ message: "City already exists in the state" });
+    } else {
+      const cityName = String(cidade);
+      const stateId = Number(estado);
+      const newCity = await City.create({ name: cityName, idState: stateId });
+      res.status(201).json(newCity);
+    }
+  } catch (error) {
+    console.error(error);
+    res
+      .status(500)
+      .json({ message: "An error occurred while creating the city." });
+  }
+},
 };
 
 export default CityController;

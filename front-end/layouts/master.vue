@@ -2,7 +2,7 @@
   <v-app light>
     <v-navigation-drawer v-model="drawer" :clipped="clipped" color="#000" app>
       <h1 style="font-size: 60px; color: #fff" class="text-center mt-5">
-        IXC<span style="font-size: 30px">onnect </span>
+        TimelyAPPXC
       </h1>
       <v-divider class="white"></v-divider>
       <v-row class="justify-center">

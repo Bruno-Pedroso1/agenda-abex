@@ -9,12 +9,12 @@
         >
         </v-img>
         <h1 style="font-size: 60px" class="mt-16">
-          IXC<span style="font-size: 30px">onnect </span>
+          TimelyAPP
         </h1>
       </v-row>
 
       <v-row class="justify-center">
-        <v-col cols="12" md="6">
+        <v-col cols="12" md="6"> 
           <h2 class="mb-3">Login</h2>
           <v-text-field
             v-model="email"

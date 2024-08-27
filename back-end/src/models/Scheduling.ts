@@ -93,7 +93,7 @@ class scheduling
       },
     });
     scheduling.belongsTo(Payment, {
-      as: "payment",
+      as: "payments",
       onDelete: "NO ACTION",
       onUpdate: "NO ACTION",
       foreignKey: {

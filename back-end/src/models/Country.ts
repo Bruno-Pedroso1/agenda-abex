@@ -45,6 +45,7 @@ class country
       },
       {
         sequelize,
+        tableName: 'countries',
         freezeTableName: true,
         timestamps: true,
         createdAt: "created_at",

@@ -128,7 +128,7 @@ class users
     );
 
     users.belongsTo(Addresses, {
-      as: "adresses",
+      as: "addresses",
       onDelete: "NO ACTION",
       onUpdate: "NO ACTION",
       foreignKey: {
@@ -138,7 +138,7 @@ class users
       },
     });
     users.belongsTo(Company, {
-      as: "company",
+      as: "companies",
       onDelete: "NO ACTION",
       onUpdate: "NO ACTION",
       foreignKey: {

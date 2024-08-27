@@ -67,6 +67,7 @@ class paymentmethods
       },
       {
         sequelize,
+        tableName: 'payment_methods',
         freezeTableName: true,
         timestamps: true,
         createdAt: "created_at",
@@ -75,7 +76,7 @@ class paymentmethods
     );
 
     paymentmethods.belongsTo(Branch, {
-      as: "branch",
+      as: "branches",
       onDelete: "NO ACTION",
       onUpdate: "NO ACTION",
       foreignKey: {

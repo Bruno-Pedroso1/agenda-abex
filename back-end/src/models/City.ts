@@ -53,6 +53,7 @@ class city
       },
       {
         sequelize,
+        tableName: 'cities',
         freezeTableName: true,
         timestamps: true,
         createdAt: "created_at",
@@ -61,7 +62,7 @@ class city
     );
 
     city.belongsTo(State, {
-      as: "state",
+      as: "states",
       onDelete: "NO ACTION",
       onUpdate: "NO ACTION",
       foreignKey: {

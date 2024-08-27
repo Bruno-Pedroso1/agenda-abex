@@ -60,15 +60,15 @@ class voucher
       },
       {
         sequelize,
+        tableName: 'voucher',
         freezeTableName: true,
         timestamps: true,
         createdAt: "created_at",
         updatedAt: "updated_at",
-        tableName: "vouchers",
       }
     );
     voucher.belongsTo(Branch, {
-      as: "branch",
+      as: "branches",
       onDelete: "NO ACTION",
       onUpdate: "NO ACTION",
       foreignKey: {

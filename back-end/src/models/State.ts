@@ -52,6 +52,7 @@ class state
       },
       {
         sequelize,
+        tableName: 'states',
         freezeTableName: true,
         timestamps: true,
         createdAt: "created_at",
@@ -60,7 +61,7 @@ class state
     );
 
     state.belongsTo(Country, {
-      as: "country",
+      as: "contries",
       onDelete: "NO ACTION",
       onUpdate: "NO ACTION",
       foreignKey: {

@@ -68,7 +68,7 @@ class integrations
     );
 
     integrations.belongsTo(Branch, {
-      as: "branch",
+      as: "branches",
       onDelete: "NO ACTION",
       onUpdate: "NO ACTION",
       foreignKey: {

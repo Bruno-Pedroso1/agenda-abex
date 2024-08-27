@@ -89,6 +89,7 @@ class company
       },
       {
         sequelize,
+        tableName: 'companies',
         freezeTableName: true,
         timestamps: true,
         createdAt: "created_at",

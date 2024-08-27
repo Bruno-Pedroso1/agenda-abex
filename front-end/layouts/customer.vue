@@ -13,7 +13,7 @@
               class="white--text mt-5"
               style="font-size: 40px; font-weight: 300"
             >
-              IXC
+              TimelyAPP
             </h1>
             <v-img
               class="mt-5"

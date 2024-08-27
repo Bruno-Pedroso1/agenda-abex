@@ -91,6 +91,7 @@ class branch
       },
       {
         sequelize,
+        tableName: 'branches',
         freezeTableName: true,
         timestamps: true,
         createdAt: "created_at",
@@ -99,7 +100,7 @@ class branch
     );
 
     branch.belongsTo(Company, {
-      as: "company",
+      as: "companies",
       onDelete: "NO ACTION",
       onUpdate: "NO ACTION",
       foreignKey: {

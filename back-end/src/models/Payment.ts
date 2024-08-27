@@ -67,6 +67,7 @@ class payment
       },
       {
         sequelize,
+        tableName: 'payments',
         freezeTableName: true,
         timestamps: true,
         createdAt: "created_at",
@@ -75,7 +76,7 @@ class payment
     );
 
     payment.belongsTo(PaymentMethod, {
-      as: "payment_method",
+      as: "payment_methods",
       onDelete: "NO ACTION",
       onUpdate: "NO ACTION",
       foreignKey: {

@@ -74,7 +74,7 @@ class services
     );
 
     services.belongsTo(Branch, {
-      as: "branch",
+      as: "branches",
       onDelete: "NO ACTION",
       onUpdate: "NO ACTION",
       foreignKey: {

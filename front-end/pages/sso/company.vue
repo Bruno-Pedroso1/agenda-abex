@@ -298,7 +298,7 @@ export default {
         this.dialog = false;
         await this.getAllCompanies();
       } catch (error) {
-        this.$toast.error(error.message);
+        this.$toast.error("Preencha todos os campos!");
       }
     },
 

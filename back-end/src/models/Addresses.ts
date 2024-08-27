@@ -84,7 +84,7 @@ class addresses
     );
 
     addresses.belongsTo(City, {
-      as: "city",
+      as: "cities",
       onDelete: "NO ACTION",
       onUpdate: "NO ACTION",
       foreignKey: {

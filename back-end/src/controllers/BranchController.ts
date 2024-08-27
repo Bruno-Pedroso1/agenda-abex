@@ -145,10 +145,10 @@ const BranchController = {
             c.business_name as "nomeEmpresa",
             c.logo,
             b.trading_name as "nomeFilial"
-          from userbranch as ub
+          from user_branch as ub
           join users as u on ub.id_user = u.id
-          join branch as b on ub.id_branch = b.id
-          join company as c on b.id_company = c.id;
+          join branches as b on ub.id_branch = b.id
+          join companies as c on b.id_company = c.id;
         `,
         { type: QueryTypes.SELECT }
       );

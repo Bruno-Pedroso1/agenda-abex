@@ -8,7 +8,7 @@
           src="https://cdn.discordapp.com/attachments/1148348260533162005/1151211445674070027/image.png"
         ></v-img>
         <h1 style="font-size: 60px">
-          IXC<span style="font-size: 30px">onnect </span>
+          TimelyAPP
         </h1>
       </v-row>
 

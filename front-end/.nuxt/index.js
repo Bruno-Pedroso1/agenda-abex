@@ -12,9 +12,9 @@ import { setContext, getLocation, getRouteData, normalizeError } from './utils'
 
 /* Plugins */
 
-import nuxt_plugin_plugin_21c1cc85 from 'nuxt_plugin_plugin_21c1cc85' // Source: .\\components\\plugin.js (mode: 'all')
-import nuxt_plugin_plugin_c0b874e2 from 'nuxt_plugin_plugin_c0b874e2' // Source: .\\vuetify\\plugin.js (mode: 'all')
-import nuxt_plugin_axios_1b0c2028 from 'nuxt_plugin_axios_1b0c2028' // Source: .\\axios.js (mode: 'all')
+import nuxt_plugin_plugin_15ae2a2c from 'nuxt_plugin_plugin_15ae2a2c' // Source: .\\components\\plugin.js (mode: 'all')
+import nuxt_plugin_plugin_0379a148 from 'nuxt_plugin_plugin_0379a148' // Source: .\\vuetify\\plugin.js (mode: 'all')
+import nuxt_plugin_axios_2f92804f from 'nuxt_plugin_axios_2f92804f' // Source: .\\axios.js (mode: 'all')
 import nuxt_plugin_axios_397e54eb from 'nuxt_plugin_axios_397e54eb' // Source: ..\\plugins\\axios.ts (mode: 'all')
 import nuxt_plugin_vuetoastification_3ddf51bb from 'nuxt_plugin_vuetoastification_3ddf51bb' // Source: ..\\plugins\\vue-toastification.ts (mode: 'all')
 import nuxt_plugin_mask_e082a766 from 'nuxt_plugin_mask_e082a766' // Source: ..\\plugins\\mask.ts (mode: 'all')
@@ -184,16 +184,16 @@ async function createApp(ssrContext, config = {}) {
   }
   // Plugin execution
 
-  if (typeof nuxt_plugin_plugin_21c1cc85 === 'function') {
-    await nuxt_plugin_plugin_21c1cc85(app.context, inject)
+  if (typeof nuxt_plugin_plugin_15ae2a2c === 'function') {
+    await nuxt_plugin_plugin_15ae2a2c(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_plugin_c0b874e2 === 'function') {
-    await nuxt_plugin_plugin_c0b874e2(app.context, inject)
+  if (typeof nuxt_plugin_plugin_0379a148 === 'function') {
+    await nuxt_plugin_plugin_0379a148(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_axios_1b0c2028 === 'function') {
-    await nuxt_plugin_axios_1b0c2028(app.context, inject)
+  if (typeof nuxt_plugin_axios_2f92804f === 'function') {
+    await nuxt_plugin_axios_2f92804f(app.context, inject)
   }
 
   if (typeof nuxt_plugin_axios_397e54eb === 'function') {

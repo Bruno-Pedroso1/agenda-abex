@@ -15,7 +15,7 @@ interface UserBranchAttributes {
 interface UserBranchCreationAttributes
   extends Optional<UserBranchAttributes, "id"> {}
 
-class userbranch
+class user_branch
   extends Model<UserBranchAttributes, UserBranchCreationAttributes>
   implements UserBranchAttributes
 {
@@ -27,7 +27,7 @@ class userbranch
   public readonly updated_at?: Date;
 
   static initModel(sequelize: any) {
-    userbranch.init(
+    user_branch.init(
       {
         id: {
           type: DataTypes.INTEGER,
@@ -71,7 +71,7 @@ class userbranch
     );
 
     Branch.belongsToMany(Users, {
-      through: userbranch,
+      through: user_branch,
       as: "users",
       onDelete: "NO ACTION",
       onUpdate: "NO ACTION",
@@ -82,8 +82,8 @@ class userbranch
       },
     });
     Users.belongsToMany(Branch, {
-      through: userbranch,
-      as: "branch",
+      through: user_branch,
+      as: "branches",
       onDelete: "NO ACTION",
       onUpdate: "NO ACTION",
       foreignKey: {
@@ -95,6 +95,6 @@ class userbranch
   }
 }
 
-userbranch.initModel(sequelize);
+user_branch.initModel(sequelize);
 
-export default userbranch;
+export default user_branch;
