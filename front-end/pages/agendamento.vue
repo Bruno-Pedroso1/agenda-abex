@@ -268,7 +268,19 @@
                   <h4 class="mb-2">
                     Somente após o pagamento seu horário será confirmado.
                   </h4>
-                  FAZER QRCODE
+                  <div>
+    <form @submit.prevent="generateQRCode">
+      <button type="submit">
+        <h1>
+
+          CLIQUE PARA GERAR QR CODE
+        </h1> 
+      </button>
+        <div v-if="qrCodeUrl">
+      <img :src="qrCodeUrl" alt="QR Code Pix" />
+    </div>
+    </form>
+  </div>
                 </v-col>
               </v-row>
             </v-card-text>
@@ -280,12 +292,18 @@
 </template>
 
 <script>
+  import QRCode from "qrcode";
 export default {
+
   name: "AgendamentosPage",
   layout: "customer",
 
   data() {
     return {
+      pixKey: "10303949970",
+      name: "Bruno Felipe de Almeida Pedroso",
+      amount: "",
+      qrCodeUrl: "",
       dialogHorario: false,
       dialogPagamento: false,
       agendaId: null,
@@ -330,6 +348,64 @@ export default {
   },
 
   methods: {
+    generateQRCode() {
+    const pixPayload = this.generatePixPayload(
+      this.pixKey,
+      this.name,
+      this.amount,
+    );
+
+    QRCode.toDataURL(pixPayload)
+      .then((url) => {
+        this.qrCodeUrl = url;
+        // Redirecionar para a página agendamento.vue com o valor total
+        this.$router.push({
+          path: '/agendamento',
+          query: { valorTotal: this.amount }
+        });
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  },
+  generatePixPayload(pixKey, name, amount) {
+    let payload = "000201";
+    payload += this.formatField(26, "0014br.gov.bcb.pix", pixKey);
+    payload += this.formatField(59, name);
+
+    if (amount) {
+      const formattedAmount = parseFloat(amount).toFixed(2);
+      payload += this.formatField(54, formattedAmount);
+    }
+
+    const crc = this.calculateCRC16(payload + "6304");
+    payload += "6304" + crc;
+
+    return payload;
+  },
+  formatField(id, value) {
+    const length = value.length.toString().padStart(2, "0");
+    return id.toString().padStart(2, "0") + length + value;
+  },
+  calculateCRC16(payload) {
+    let crc = 0xffff;
+    let polynomial = 0x1021;
+
+    for (let i = 0; i < payload.length; i++) {
+      const byte = payload.charCodeAt(i);
+      crc ^= byte << 8;
+
+      for (let j = 0; j < 8; j++) {
+        if ((crc & 0x8000) !== 0) {
+          crc = (crc << 1) ^ polynomial;
+        } else {
+          crc <<= 1;
+        }
+      }
+    }
+
+    return (crc & 0xffff).toString(16).toUpperCase().padStart(4, "0");
+  },
     async fetchPaymentMethods() {
       try {
         const response = await this.$api.get("/api/payment-methods");

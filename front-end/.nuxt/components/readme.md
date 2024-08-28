@@ -12,6 +12,7 @@ You can directly use them in pages and other components without the need to impo
 - `<GraphicLine>` | `<graphic-line>` (components/GraphicLine.vue)
 - `<GraphicPie>` | `<graphic-pie>` (components/GraphicPie.vue)
 - `<NuxtLogo>` | `<nuxt-logo>` (components/NuxtLogo.vue)
+- `<QrCode>` | `<qr-code>` (components/qrCode.vue)
 - `<TooltipComponent>` | `<tooltip-component>` (components/TooltipComponent.vue)
 - `<Tutorial>` | `<tutorial>` (components/Tutorial.vue)
 - `<VuetifyLogo>` | `<vuetify-logo>` (components/VuetifyLogo.vue)

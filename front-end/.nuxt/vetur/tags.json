@@ -17,6 +17,9 @@
   "NuxtLogo": {
     "description": "Auto imported from components/NuxtLogo.vue"
   },
+  "QrCode": {
+    "description": "Auto imported from components/qrCode.vue"
+  },
   "TooltipComponent": {
     "description": "Auto imported from components/TooltipComponent.vue"
   },
