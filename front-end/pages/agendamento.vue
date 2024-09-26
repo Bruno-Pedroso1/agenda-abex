@@ -250,7 +250,7 @@
                     Copie o código abaixo para pagar via PIX em qualquer
                     aplicativo habilitado.
                   </h4>
-                  <v-btn @click="createPayment"> TESTE PAGAMENTO </v-btn>
+                  <v-btn @click="createPayment"> PAGAMENTO </v-btn>
                   <v-text-field
                     id="codigoPix"
                     style="border: dashed 2px #000"

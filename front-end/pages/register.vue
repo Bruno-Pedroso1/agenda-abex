@@ -2,11 +2,6 @@
   <v-container>
     <v-form v-model="valid" @submit.prevent="registerCustomer">
       <v-row class="justify-center align-center">
-        <v-img
-          max-width="150"
-          max-height="210"
-          src="https://cdn.discordapp.com/attachments/1148348260533162005/1151211445674070027/image.png"
-        ></v-img>
         <h1 style="font-size: 60px">
           TimelyAPP
         </h1>

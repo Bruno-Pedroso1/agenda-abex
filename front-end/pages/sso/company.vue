@@ -191,11 +191,6 @@ export default {
           align: "center",
         },
         {
-          text: "Logo da Empresa",
-          value: "logo",
-          align: "center",
-        },
-        {
           text: "CNPJ",
           value: "companyDocument",
           field: "company_document",
