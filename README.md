@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/aa426a78-4353-40c7-8a69-58cb437b7343)# back-end:
+# back-end:
 #install
 $ npm install
 $ npm run dev
