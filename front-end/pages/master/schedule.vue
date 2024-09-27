@@ -119,7 +119,7 @@
                 {{ eventoSelecionado.servicePrice }}
               </h3>
               <h3 class="mt-2 mb-2">
-                Data para máxima para cancelar:
+                Data máxima para cancelar:
                 {{ eventoSelecionado.formatarReagendar }}
               </h3>
 

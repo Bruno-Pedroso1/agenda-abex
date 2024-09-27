@@ -221,19 +221,6 @@ export default {
         this.$toast.error("Erro durante o login do Google");
       }
     },
-    async ssoLogin() {
-      try {
-        const authorizationEndpoint = `http://localhost:8080/realms/ixcsoft/protocol/openid-connect/auth`;
-
-        window.location.href = `${authorizationEndpoint}?response_type=code&client_id=ixc&redirect_uri=${encodeURIComponent(
-          window.location.origin + "/superadmin/company"
-        )}`;
-        localStorage.setItem("toksen", "eusousuperadmin");
-      } catch (error) {
-        console.error("Erro durante o login SSO:", error);
-        this.$toast.error("Erro durante o login SSO");
-      }
-    },
   },
 };
 </script>

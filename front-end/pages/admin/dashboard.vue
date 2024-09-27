@@ -172,7 +172,7 @@
 
 <script>
 export default {
-  name: "IxcSchedulerDashboard",
+  name: "DASH",
   layout: "admin",
 
   data() {

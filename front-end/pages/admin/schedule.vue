@@ -168,7 +168,7 @@
                 {{ eventoSelecionado.servicePrice }}
               </p>
               <p>
-                Data para máxima para reagendar:
+                Data máxima para reagendar:
                 {{ eventoSelecionado.formatarReagendar }}
               </p>
             </v-col>
