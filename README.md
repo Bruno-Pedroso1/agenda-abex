@@ -1,4 +1,4 @@
-# back-end:
+![image](https://github.com/user-attachments/assets/aa426a78-4353-40c7-8a69-58cb437b7343)# back-end:
 #install
 $ npm install
 $ npm run dev
@@ -21,7 +21,7 @@ $ npm run dev
     Além dos donos da empresa poderem adicionar integrações (como inteligencias artificais, sistemas de notificação, modobank), métodos de pagamento e outras coisas mostradas no banco de dados abaixo.
 
 # Criação do bd:
-   create table countries
+ create table countries
 (
     id         serial
         primary key,
@@ -203,20 +203,6 @@ create table users
 alter table users
     owner to postgres;
 
-create table user_branch
-(
-    id         serial
-        primary key,
-    id_branch  integer not null,
-    id_user    integer not null,
-    credits    double precision,
-    created_at timestamp default CURRENT_TIMESTAMP,
-    updated_at timestamp default CURRENT_TIMESTAMP
-);
-
-alter table user_branch
-    owner to postgres;
-
 create table schedule
 (
     id                 serial
@@ -319,10 +305,28 @@ create table payment_voucher
 alter table payment_voucher
     owner to postgres;
 
+create table user_branch
+(
+    id         serial
+        primary key,
+    id_branch  integer not null
+        references branches
+            on delete cascade,
+    id_user    integer not null
+        references users
+            on delete cascade,
+    credits    double precision,
+    created_at timestamp default CURRENT_TIMESTAMP,
+    updated_at timestamp default CURRENT_TIMESTAMP
+);
+
+alter table user_branch
+    owner to postgres;
 
 
 
 
+## PT-BR
 
 create table pais (
     id serial primary key,
