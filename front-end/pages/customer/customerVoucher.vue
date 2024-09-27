@@ -4,7 +4,6 @@
       <h3 class="mt-4">Ao realizar a compra você será vinculado a filial</h3>
       <v-col v-for="(group, index) in groupedVouchers" :key="index" cols="12">
         <v-card class="mb-4">
-          <h5>Limite de 1 voucher por filial ao mês</h5>
           <v-card-title>
             <v-col class="text-center">
               <h4>
@@ -16,8 +15,8 @@
               </h4>
             </v-col>
           </v-card-title>
-          <v-card-subtitle class="text-center green--text mb-4 mt-1"
-            ><h3>
+          <v-card-subtitle class="text-center green--text mb-4 mt-1">
+            <h3>
               Seus Créditos na Filial: R$ {{ Number(group.credits).toFixed(2) }}
             </h3>
           </v-card-subtitle>
@@ -29,27 +28,24 @@
               md="6"
             >
               <v-card class="mb-4">
-                <div :key="item.voucher.dummyProperty">
-                  <v-card-text class="mb-3">
-                    <v-card v-if="item && item.voucher">
-                      <v-card-text>
-                        <p>Valor: R$ {{ item.voucher.price }}</p>
-                        <p>
-                          Créditos Depositados: R$
-                          {{ item.voucher.creditsValue }}
-                        </p>
-                      </v-card-text>
-                      <v-btn
-                        color="green white--text"
-                        @click="openDialog(item.voucher.id)"
-                        :disabled="item.canBuy ? false : true"
-                        block
-                      >
-                        {{ item.canBuy ? "Comprar" : "Limite de 1 ao mês" }}
-                      </v-btn>
-                    </v-card>
-                  </v-card-text>
-                </div>
+                <v-card-text class="mb-3">
+                  <v-card v-if="item && item.voucher">
+                    <v-card-text>
+                      <p>Valor: R$ {{ item.voucher.price }}</p>
+                      <p>
+                        Créditos Depositados: R$
+                        {{ item.voucher.creditsValue }}
+                      </p>
+                    </v-card-text>
+                    <v-btn
+                      color="green white--text"
+                      @click="openDialog(item.voucher.id)"
+                      block
+                    >
+                      Comprar
+                    </v-btn>
+                  </v-card>
+                </v-card-text>
               </v-card>
               <v-dialog v-model="dialogStates[item.voucher.id]">
                 <v-card>
@@ -76,11 +72,9 @@
                         </h4>
                         <v-btn
                           color="red"
-                          @click="
-                            () => comprar(item.voucher, group, item.voucher.id)
-                          "
+                          @click="() => comprar(item.voucher, group, item.voucher.id)"
                         >
-                          TESTE PAGAR
+                          PAGAMENTO
                         </v-btn>
                         <v-text-field
                           id="codigoPix"
@@ -206,47 +200,36 @@ export default {
       }
     },
 
-    async displayMatchingVouchers() {
-      const matchingVouchers = [];
+async displayMatchingVouchers() {
+  const matchingVouchers = [];
+  
+  const paymentInfoResponse = await this.$api.get("/api/payment-voucher-info");
+  const userId = this.user.id;
+  
+  const paymentInfo = paymentInfoResponse
+    .filter((item) => item.iduser === userId)
+    .map((item) => ({
+      idVoucher: item.idvoucher,
+      branchId: item.idbranch,
+      created: item.created,
+    }));
 
-      const paymentInfoResponse = await this.$api.get(
-        "/api/payment-voucher-info"
-      );
-      const userId = this.user.id;
-      const paymentInfo = paymentInfoResponse
-        .filter((item) => item.iduser === userId)
-        .map((item) => ({
-          idVoucher: item.idvoucher,
-          branchId: item.idbranch,
-          created: item.created,
-        }));
+  for (const voucher of this.vouchers) {
+    const voucherBranchId = Number(voucher.idBranch);
+    const branch = await this.getBranchById(voucherBranchId);
+    const credits = await this.getUserBranchCredits(this.user.id, voucherBranchId);
 
-      const currentMonth = new Date().getMonth();
+    matchingVouchers.push({
+      branchName: branch,
+      credits: credits,
+      voucher: voucher,
+      canBuy: true,  // Alterado para sempre permitir a compra
+    });
+  }
 
-      for (const voucher of this.vouchers) {
-        const voucherBranchId = Number(voucher.idBranch);
-        const branch = await this.getBranchById(voucherBranchId);
-        const credits = await this.getUserBranchCredits(
-          this.user.id,
-          voucherBranchId
-        );
+  this.matchingVouchers = matchingVouchers;
+},
 
-        const userPurchasedVoucherInCurrentMonth = paymentInfo.find(
-          (item) =>
-            item.branchId === voucherBranchId &&
-            new Date(item.created).getMonth() === currentMonth
-        );
-
-        matchingVouchers.push({
-          branchName: branch,
-          credits: credits,
-          voucher: voucher,
-          canBuy: !userPurchasedVoucherInCurrentMonth,
-        });
-      }
-
-      this.matchingVouchers = matchingVouchers;
-    },
 
     async getVoucher() {
       const responseVoucher = await this.$api.get("/api/voucher");

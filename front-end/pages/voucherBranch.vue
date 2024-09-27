@@ -33,12 +33,11 @@
             <v-btn
               block
               color="green"
-              :disabled="voucher.canBuy ? false : true"
               @click="
                 openDialog(voucher.id, voucher.price, voucher.creditsValue)
               "
             >
-              {{ voucher.canBuy ? "Comprar" : "Limite de 1 ao mês" }}
+              Comprar
             </v-btn>
           </v-card-actions>
         </v-card>
@@ -65,7 +64,7 @@
                     Copie o código abaixo para pagar via PIX em qualquer
                     aplicativo habilitado.
                   </h4>
-                  <v-btn @click="efetuarCompra"> TESTE PAGAMENTO </v-btn>
+                  <v-btn @click="efetuarCompra"> PAGAMENTO </v-btn>
                   <v-text-field
                     id="codigoPix"
                     style="border: dashed 2px #000"
@@ -152,7 +151,6 @@ export default {
       this.$set(this.dialogStates, voucher.id, false);
     });
     await this.loadPaymentInfo();
-    console.log("voucherBranch params", this.$route.params);
   },
 
   methods: {
@@ -167,13 +165,9 @@ export default {
           created: item.created,
         }));
 
+        // Removendo a limitação de compra
         this.vouchers.forEach((voucher) => {
-          const userPurchasedVoucherInCurrentMonth = this.paymentInfo.find(
-            (item) =>
-              item.branchId === voucher.idBranch &&
-              new Date(item.created).getMonth() === new Date().getMonth()
-          );
-          voucher.canBuy = !userPurchasedVoucherInCurrentMonth;
+          voucher.canBuy = true; // Todos os vouchers podem ser comprados
           this.$set(this.dialogStates, voucher.id, false);
         });
       } catch (error) {
@@ -206,6 +200,7 @@ export default {
         const priceV = parseFloat(this.currentVoucherPrice);
         const creditAdd = parseFloat(this.currentVoucherCredits);
         const idV = this.currentVoucherId;
+
         try {
           await this.$api.get(
             `/api/user-branch/user=${userId}/filial=${idFilial}`
@@ -258,6 +253,7 @@ export default {
         await this.loadPaymentInfo();
       }
     },
+    
     async getUserBranchCredits(userId, idFilial) {
       try {
         const response = await this.$api.get(
@@ -275,6 +271,7 @@ export default {
         return 0.0;
       }
     },
+    
     openDialog(voucherId, price, creditsValue) {
       this.$set(this.dialogStates, voucherId, true);
       this.currentVoucherId = voucherId;
@@ -290,6 +287,7 @@ export default {
         this.$toast.error(error.message);
       }
     },
+    
     async getUserByToken() {
       if (!this.fetchingUserByToken) {
         this.fetchingUserByToken = true;

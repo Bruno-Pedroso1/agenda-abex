@@ -29,7 +29,7 @@
                   <v-icon class="mb-1 mr-1">mdi-clock</v-icon>
                   Gerenciar Horários
                   <v-icon class="mb-1 ml-1">mdi-clock</v-icon>
-                  <v-icon>mdi-clock</v-icon>
+
                 </v-btn>
               </v-col>
             </v-row>

@@ -115,11 +115,11 @@ const PaymentVoucherController = {
       FROM
         payment_voucher AS pv
       JOIN
-        vouchers AS v ON pv.id_voucher = v.id
+        voucher AS v ON pv.id_voucher = v.id
       JOIN
-        branch AS b ON v.id_branch = b.id
+        branches AS b ON v.id_branch = b.id
       JOIN
-        payment AS p ON pv.id_payment = p.id
+        payments AS p ON pv.id_payment = p.id
       JOIN
         users AS u ON p.id_user = u.id;
         `,

@@ -4,7 +4,7 @@
   <v-container>
     <v-row>
       <v-col>
-        <h1 class="d-flex align-center flex-column">Cadastro de UserBranch</h1>
+        <h1 class="d-flex align-center flex-column">Cadastro de Filial - Usuário</h1>
       </v-col>
     </v-row>
     <v-row class="d-flex align-center flex-column">

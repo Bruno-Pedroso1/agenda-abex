@@ -190,11 +190,10 @@ export default {
   async created() {
     await this.getUserByToken();
     await this.validateLogin();
-    await Promise.all([
-      this.getAllSchedules(),
-      this.getAllBranches(),
-      this.getAllServices(),
-    ]);
+     await this.getAllServices();
+      await this.getAllSchedules();
+     await this.getAllBranches();
+
   },
 
   methods: {
@@ -250,17 +249,17 @@ export default {
       }
     },
 
-    async getAllServices() {
-      try {
-        const idBranches = this.branches.map((b) => b.id);
-        const response = await this.$api.get("/api/services");
-        this.services = response.filter((r) => {
-          return idBranches.includes(r.idBranch);
-        });
-      } catch (error) {
-        this.$toast.error(error.message);
-      }
-    },
+async getAllServices() {
+  try {
+    const services = await this.$api.get("/api/services");
+    this.services = services;
+
+  } catch (error) {
+    this.$toast.error(error.message);
+  }
+},
+
+
 
     update(item) {
       this.id = item.id;

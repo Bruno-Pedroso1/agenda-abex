@@ -123,8 +123,8 @@ const VoucherController = {
           v.price as "valorVoucher",
           v.credits_value as "atribuicaoCreditos",
           b.business_name as "nomeFilial"
-        from vouchers as v
-        join branch as b on v.id_branch = b.id
+        from voucher as v
+        join branches as b on v.id_branch = b.id
         `,
         { type: QueryTypes.SELECT }
       );

@@ -5,7 +5,7 @@
     <v-row>
       <v-col>
         <h1 class="d-flex align-center flex-column">
-          Cadastro de PaymentVoucher
+          Cadastro de Pagamento - Voucher
         </h1>
       </v-col>
     </v-row>

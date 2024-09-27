@@ -202,10 +202,6 @@
             Horário de Início: {{ eventoSelecionado.startTime }}
           </h3>
           <h3>Horário Final: {{ eventoSelecionado.endTime }}</h3>
-          <h3>idagenda: {{ eventoSelecionado.idSchedule }}</h3>
-          <h3>idAgendamento: {{ eventoSelecionado.idAgendamento }}</h3>
-          <h3>idPayment: {{ eventoSelecionado.idPayment }}</h3>
-          <h3>editData: {{ eventoSelecionado.editData }}</h3>
           <v-row>
             <v-col class="text-center mt-2">
               <v-date-picker
