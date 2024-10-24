@@ -97,7 +97,7 @@ export default {
           to: "/admin/customers",
         },
         {
-          icon: "mdi-account-group",
+          icon: "mdi-cash-sync",
           title: "Pagamentos Recebidos",
           to: "/admin/payments",
         },

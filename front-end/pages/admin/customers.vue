@@ -92,10 +92,6 @@
           </v-card-text>
         </v-card>
       </v-col>
-      <v-col
-      cols="12"
-      md="4"
-      > fazer chat </v-col>
     </v-row>
   </v-container>
 </template>

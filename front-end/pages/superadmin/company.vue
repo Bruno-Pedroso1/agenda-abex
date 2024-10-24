@@ -5,8 +5,7 @@
         <h1>Seja bem vindo a tela de gerenciamento</h1>
       </v-col>
     </v-row>
-    <v-row>
-      <v-col md="6">
+      <v-col md="6" class="justify-center">
         <v-card>
           <v-card-title class="justify-center">
             <h2>Usuários</h2>
@@ -42,7 +41,7 @@
                 block
                 to="/sso/getMasterUsers"
                 >
-                  Masters
+                  Donos de Empresa
                 </v-btn>
               </v-col>
               <v-col md="12">
@@ -58,36 +57,6 @@
           </v-card-text>
         </v-card>
       </v-col>
-      <v-col md="6">
-        <v-card>
-          <v-card-title class="justify-center">
-            <h2>Acessar página</h2>
-          </v-card-title>
-          <v-card-text>
-            <v-row>
-              <v-col>
-                <v-btn
-                class="primary mb-5"
-                height="66"
-                to="/userHome"
-                block
-                >
-                  Cliente
-                </v-btn>
-                <v-btn
-                class="primary"
-                height="66"
-                to="/admin/dashboard"
-                block
-                >
-                  Administrador
-                </v-btn>
-              </v-col>
-            </v-row>
-          </v-card-text>
-        </v-card>
-      </v-col>
-    </v-row>
     <v-row>
       <v-col md="6">
         <v-card>

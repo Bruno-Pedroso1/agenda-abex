@@ -31,6 +31,26 @@
                   <v-icon class="mb-1 ml-1">mdi-clock</v-icon>
 
                 </v-btn>
+                <v-btn large class="mt-4 mb-4"color="primary" block href="/admin/schedules">
+                  <v-icon class="mb-1 mr-1">mdi-briefcase</v-icon>
+                  Gerenciar Serviços
+                  <v-icon class="mb-1 ml-1">mdi-briefcase</v-icon>
+
+                </v-btn>
+                <v-btn large  class="mt-4 mb-4"color="primary" block href="/admin/schedules">
+                  <v-icon class="mb-1 mr-1">mdi-currency-usd-off</v-icon>
+                  Gerenciar Vouchers
+                  <v-icon class="mb-1 ml-1">mdi-currency-usd-off</v-icon>
+
+                </v-btn>
+                
+                <v-btn large color="primary" block href="/admin/schedules">
+                  <v-icon class="mb-1 mr-1">mdi-office-building</v-icon>
+                  Gerenciar Filiais
+                  <v-icon class="mb-1 ml-1">mdi-office-building</v-icon>
+
+                </v-btn>
+
               </v-col>
             </v-row>
           </v-card-text>
