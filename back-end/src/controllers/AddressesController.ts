@@ -1,8 +1,35 @@
 import { Request, Response } from "express";
 import Addresses, { AddressAttributes } from "../models/Addresses";
+import users from "../models/Users";
 
 const AddressesController = {
 
+  getAddressesByUserId: async (req: Request, res: Response): Promise<Response> => {
+    const { id } = req.params;
+  
+    try {
+      const user = await users.findByPk(id);
+      if (!user) {
+        return res.status(404).json({ message: "User not found." });
+      }
+  
+      const addresses = await Addresses.findAll({
+        where: {
+          id: user.idAddresses,
+        },
+      });
+  
+      if (addresses.length === 0) {
+        return res.status(404).json({ message: "No addresses found." });
+      }
+  
+      return res.status(200).json(addresses);
+    } catch (error) {
+      console.error(error);
+      return res.status(500).json({ message: "An error occurred while fetching addresses." });
+    }
+  },
+  
   // cadastro de endereço.
   createAddress: async (req: Request, res: Response): Promise<void> => {
     try {

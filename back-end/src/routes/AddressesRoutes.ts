@@ -14,6 +14,7 @@ router.get(
   AddressesController.getAllAddresses
 );
 router.get("/addresses/:id", AddressesController.getAddressById);
+router.get("/addresses/user/:id", AddressesController.getAddressesByUserId);
 router.patch("/addresses/:id", AddressesController.updateAddress);
 router.delete("/addresses/:id", AddressesController.deleteAddress);
 

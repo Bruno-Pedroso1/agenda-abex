@@ -44,6 +44,7 @@ router.get("/voucher-company/empresa=:idEmpresa", VoucherRoutes);
 
 // ADDRESSES (ENDEREÇOS)
 router.post("/addresses", AddressesRoutes);
+router.get("/addresses/user/:id", AddressesRoutes);
 router.get("/addresses", AddressesRoutes);
 router.get("/addresses/:id", AddressesRoutes);
 router.patch("/addresses/:id", AddressesRoutes);

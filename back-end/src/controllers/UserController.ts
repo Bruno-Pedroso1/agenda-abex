@@ -1,13 +1,17 @@
 import { Request, Response } from "express";
 import { Op } from "sequelize";
 import Users from "../models/Users";
+
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import getUserByToken from "../utils/getUserByToken";
 import { error } from "console";
 import { Model, QueryTypes, Sequelize } from "sequelize";
 
+
 const UserController = {
+
+
   // cadastro de usuário.
   createUser: async (req: Request, res: Response): Promise<void> => {
     try {

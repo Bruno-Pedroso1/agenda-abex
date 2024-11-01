@@ -5,7 +5,8 @@
         <h1>Seja bem vindo a tela de gerenciamento</h1>
       </v-col>
     </v-row>
-      <v-col md="6" class="justify-center">
+    <v-row justify="center">
+      <v-col md="6" class="d-flex justify-center">
         <v-card>
           <v-card-title class="justify-center">
             <h2>Usuários</h2>
@@ -13,50 +14,21 @@
           <v-card-text>
             <v-row>
               <v-col md="6">
-                <v-btn
-                class="primary mb-5"
-                block
-                to="/sso/user"
-                >
-                  Todos
-                </v-btn>
-                <v-btn
-                class="primary"
-                block
-                to="/sso/getCustomer"
-                >
-                  Clientes
-                </v-btn>
+                <v-btn class="primary mb-5" block to="/sso/user">Todos</v-btn>
+                <v-btn class="primary" block to="/sso/getCustomer">Clientes</v-btn>
               </v-col>
               <v-col md="6">
-                <v-btn
-                class="primary mb-5"
-                block
-                to="/sso/getUsersAdmin"
-                >
-                  Administradores
-                </v-btn>
-                <v-btn
-                class="primary"
-                block
-                to="/sso/getMasterUsers"
-                >
-                  Donos de Empresa
-                </v-btn>
+                <v-btn class="primary mb-5" block to="/sso/getUsersAdmin">Administradores</v-btn>
+                <v-btn class="primary" block to="/sso/getMasterUsers">Donos de Empresa</v-btn>
               </v-col>
               <v-col md="12">
-                <v-btn
-                class="primary"
-                block
-                to="/sso/getSuperUsers"
-                >
-                  Super Administradores
-                </v-btn>
+                <v-btn class="primary" block to="/sso/getSuperUsers">Super Administradores</v-btn>
               </v-col>
             </v-row>
           </v-card-text>
         </v-card>
       </v-col>
+    </v-row>
     <v-row>
       <v-col md="6">
         <v-card>

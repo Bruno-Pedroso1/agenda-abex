@@ -1,5 +1,3 @@
-<!-- eslint-disable vue/valid-#item.actions -->
-<!-- eslint-disable vue/#item.actions-style -->
 <template>
   <v-container>
     <v-row>
@@ -35,7 +33,7 @@
               corIcone="green"
               left
               texto="Editar"
-              @click="dialog = true"
+              @click="update(item)"
             />
           </template>
         </v-data-table>
@@ -53,8 +51,7 @@
                 color="green"
                 placeholder="ID do Endereço"
                 label="ID do Endereço"
-              >
-              </v-text-field>
+              />
             </v-col>
             <v-col>
               <v-text-field
@@ -65,53 +62,51 @@
                 placeholder="CEP"
                 label="CEP"
                 @input="searchZipCode"
-              ></v-text-field>
+              />
               <v-text-field
                 v-model="district"
                 outlined
                 color="green"
                 placeholder="Bairro"
                 label="Bairro"
-              >
-              </v-text-field>
+              />
               <v-text-field
                 v-model="street"
                 outlined
                 color="green"
                 placeholder="Rua"
                 label="Rua"
-              >
-              </v-text-field>
+              />
               <v-text-field
                 v-model="number"
                 outlined
                 color="green"
                 placeholder="Número"
                 label="Número"
-              >
-              </v-text-field>
+              />
               <v-text-field
                 v-model="complement"
                 outlined
                 color="green"
                 placeholder="Complemento"
                 label="Complemento"
-              >
-              </v-text-field>
-              <v-text-field
+              />
+              <v-select
                 v-model="selectedCity"
+                :items="cities"
+                item-text="name"
+                item-value="id"
                 outlined
                 color="green"
                 placeholder="Nome da Cidade"
                 label="Nome da Cidade"
-              >
-              </v-text-field>
+              />
             </v-col>
           </v-row>
         </v-card-title>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="green" @click="persist"> Salvar </v-btn>
+          <v-btn color="green" @click="persist">Salvar</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -193,12 +188,12 @@ export default {
       }
     },
     clear() {
-      this.zipCode = null;
+      this.zipCode = "";
       this.selectedCity = null;
-      this.complement = null;
-      this.number = null;
-      this.street = null;
-      this.district = null;
+      this.complement = "";
+      this.number = "";
+      this.street = "";
+      this.district = "";
       this.id = null;
     },
 
@@ -212,78 +207,7 @@ export default {
       this.id = item.id;
       this.dialog = true;
     },
-    async findOrCreateCity(cityName, state) {
-      try {
-        try {
-          await this.$api.get("/api/city-by-state", {
-            params: {
-              name: cityName,
-              idState: state.id,
-            },
-          });
-        } catch (error) {
-          if (error.response.status === 400) {
-            console.log("oiofdisgśidg");
-          }
-        }
 
-        console.log(response);
-        if (response.length > 0) {
-          return response[0];
-        } else {
-          const newCity = await this.$api.post(
-            `/api/city-new/${cityName}/${state.id}`
-          );
-          return newCity;
-        }
-      } catch (error) {
-        console.error(error.message);
-        this.$toast.error("Erro ao procurar ou criar a cidade.");
-        throw error;
-      }
-    },
-
-    async findOrCreateState(stateName) {
-      try {
-        const response = await this.$api.get("/api/state-by-name", {
-          params: {
-            name: stateName,
-          },
-        });
-
-        if (response.length > 0) {
-          return response[0];
-        } else {
-          const newState = await this.$api.post(`/api/state-new/${stateName}`);
-          return newState;
-        }
-      } catch (error) {
-        console.error(error.message);
-        this.$toast.error("Erro ao procurar ou criar o estado.");
-        throw error;
-      }
-    },
-
-    async checkExistingAddress(addressRequest) {
-      try {
-        const response = await this.$api.get(`/api/addresses`);
-
-        const existingAddress = response.find((address) => {
-          return (
-            address.zipCode === addressRequest.zipCode &&
-            address.idCity === addressRequest.idCity &&
-            address.complement === addressRequest.complement &&
-            address.number === addressRequest.number &&
-            address.street === addressRequest.street &&
-            address.district === addressRequest.district
-          );
-        });
-        return existingAddress || null;
-      } catch (error) {
-        this.$toast.error(error.message);
-        return null;
-      }
-    },
     async getAllAddresses() {
       try {
         const userId = this.user.id;
@@ -294,22 +218,19 @@ export default {
             const addressResponse = await this.$api.get(
               `/api/addresses/${idAddresses}`
             );
-            console.log(addressResponse);
-            if (addressResponse && addressResponse.idCity) {
-              const cityResponse = await this.$api.get(
-                `/api/cities/${addressResponse.idCity}`
-              );
+            const cityResponse = await this.$api.get(
+              `/api/cities/${addressResponse.idCity}`
+            );
 
-              if (cityResponse) {
-                this.items = [
-                  {
-                    ...addressResponse,
-                    cityName: cityResponse.name,
-                  },
-                ];
-              } else {
-                this.items = [];
-              }
+            if (cityResponse) {
+              this.items = [
+                {
+                  ...addressResponse,
+                  cityName: cityResponse.name,
+                },
+              ];
+            } else {
+              this.items = [];
             }
           }
         }
@@ -326,6 +247,7 @@ export default {
         this.$toast.error(error.message);
       }
     },
+
     async desvinculoUser() {
       try {
         await this.$api.patch(`/api/users/${this.user.id}`, {
@@ -338,6 +260,7 @@ export default {
         this.$toast.error(error.message);
       }
     },
+
     async searchZipCode() {
       try {
         if (this.zipCode.length === 9) {
@@ -349,140 +272,31 @@ export default {
           this.district = response.bairro;
         }
       } catch (error) {
-        this.$toast.error("rrrr");
+        this.$toast.error("Erro ao buscar CEP.");
       }
-    },
-
-    async allStates() {
-      const responseStates = await this.$api.get("/api/states");
-      this.states = responseStates;
-    },
-
-    async allCity() {
-      const response = await this.$api.get("/api/cities");
-      this.cidades = response;
-    },
-
-    async endereco() {
-      await this.getUserByToken();
-      try {
-        try {
-          const response = await this.$api.get(
-            `https://viacep.com.br/ws/${this.zipCode}/json/`
-          );
-          await this.$api.get("/api/state-by-name", {
-            params: {
-              name: response.uf,
-            },
-          });
-          return response.uf;
-        } catch (error) {
-          if (
-            (error.response && error.response.status !== 400) ||
-            response.length === 0 ||
-            response.length == null
-          ) {
-            await this.$api.post(`/api/state-new/${response.uf}`);
-            await this.allStates();
-          }
-        }
-        try {
-          const responseCep = await this.$api.get(
-            `https://viacep.com.br/ws/${this.zipCode}/json/`
-          );
-
-          const responseStateName = await this.$api.get("/api/state-by-name", {
-            params: {
-              name: responseCep.uf,
-            },
-          });
-
-          const cidade = await this.$api.get("/api/city-by-state", {
-            params: {
-              name: responseCep.localidade,
-              idState: responseStateName.id,
-            },
-          });
-          return cidade;
-        } catch (error) {
-          if (error.response && error.response.status == 400) {
-            return cidade;
-          }
-          if (
-            (error.response && error.response.status !== 400) ||
-            cidade.length === 0 ||
-            cidade == null
-          ) {
-            const responseCep = await this.$api.get(
-              `https://viacep.com.br/ws/${this.zipCode}/json/`
-            );
-
-            const responseStateName = await this.$api.get(
-              "/api/state-by-name",
-              {
-                params: {
-                  name: responseCep.uf,
-                },
-              }
-            );
-            await this.$api.post(
-              `/api/city-new/${responseCep.localidade}/${responseStateName.id}`
-            );
-            await this.allCity();
-          }
-        }
-      } catch (error) {}
     },
 
     async persist() {
       try {
-        const response = await this.$api.get(
-          `https://viacep.com.br/ws/${this.zipCode}/json/`
-        );
-        const state = await this.findOrCreateState(response.uf);
-
-        const city = await this.findOrCreateCity(response.localidade, state);
-
         const addressRequest = {
           zipCode: this.zipCode,
-          idCity: city.id,
+          idCity: this.selectedCity,
           complement: this.complement,
           number: Number(this.number),
           street: this.street,
           district: this.district,
         };
 
-        const existingAddress = await this.checkExistingAddress(addressRequest);
+        const addressResponse = await this.$api.post(
+          `/api/addresses`,
+          addressRequest
+        );
 
-        if (existingAddress) {
-          const userUpdateRequest = {
-            id: this.user.id,
-            idAddresses: existingAddress.id,
-          };
+        await this.$api.patch(`/api/users/${this.user.id}`, {
+          idAddresses: addressResponse.id,
+        });
 
-          await this.$api.patch(
-            `/api/users/${this.user.id}`,
-            userUpdateRequest
-          );
-          this.$toast.success("Endereço associado ao usuário");
-        } else {
-          const addressResponse = await this.$api.post(
-            `/api/addresses`,
-            addressRequest
-          );
-
-          const userUpdateRequest = {
-            id: this.user.id,
-            idAddresses: addressResponse.id,
-          };
-
-          await this.$api.patch(
-            `/api/users/${this.user.id}`,
-            userUpdateRequest
-          );
-          this.$toast.success("Novo endereço cadastrado");
-        }
-
+        this.$toast.success("Novo endereço cadastrado e vinculado ao usuário.");
         await this.getAllAddresses();
         this.dialog = false;
       } catch (error) {
