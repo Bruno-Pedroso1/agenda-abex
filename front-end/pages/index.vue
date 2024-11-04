@@ -205,7 +205,6 @@ export default {
         }
       } catch (error) {
         this.$toast.warning("Usuário ou senha incorretos");
-        this.$toast.error(error.message);
       }
     },
     async GoogleLogin() {

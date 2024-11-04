@@ -95,7 +95,7 @@ export default {
           to: "/userHome",
         },
         {
-          icon: "mdi-home-outline",
+          icon: "mdi mdi-cash-plus",
           title: "Comprar Voucher",
           to: "/customer/customerVoucher",
         },
@@ -110,12 +110,14 @@ export default {
           to: "/customer/addresses",
         },
         {
-          icon: "mdi-map-marker",
-          title: "Meus Dados",
-          to: "/customer/data",
-        },
-        {
-          icon: "mdi-map-marker",
+        // Aqui o icone
+        icon: "mdi mdi-clipboard-account",
+        title: "Meus Dados",
+        to: "/customer/data",
+      },
+      {
+          // Aqui o icone
+          icon: "mdi mdi-cash",
           title: "Meus Pagamentos",
           to: "/customer/payments",
         },
