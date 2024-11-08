@@ -4,7 +4,7 @@
   <v-container>
     <v-row>
       <v-col>
-        <h1 class="d-flex align-center flex-column">Cadastro de Filial - Usuário</h1>
+        <h1 class="d-flex align-center flex-column"> lista de Filial - Usuário</h1>
       </v-col>
     </v-row>
     <v-row class="d-flex align-center flex-column">
@@ -20,14 +20,7 @@
               ></v-text-field>
             </v-col>
             <v-col md="4" cols="2" class="text-end">
-              <v-btn
-                color="green"
-                @click="(dialog = true), clear()"
-                block
-                class="mt-3"
-              >
-                Cadastrar
-              </v-btn>
+          
             </v-col>
           </v-row>
         </v-card-title>
@@ -190,10 +183,10 @@ export default {
         };
 
         if (this.id) {
-          await this.$api.patch(`/api/user-branches/${this.id}`, request);
+          await this.$api.patch(/api/user-branches/${this.id}, request);
           this.$toast.success("Filial - Usuário Editado");
         } else {
-          await this.$api.post(`/api/user-branches`, request);
+          await this.$api.post(/api/user-branches, request);
           this.$toast.success("Usuário cadastrado na filial");
         }
         this.selectedIdUser = null;
@@ -237,7 +230,7 @@ export default {
     },
     async destroy(item) {
       try {
-        await this.$api.delete(`/api/user-branches/${item.id}`);
+        await this.$api.delete(/api/user-branches/${item.id});
         await this.getAllUserBranches();
         this.$toast.success("Usuário removido da filial");
       } catch (error) {
@@ -255,7 +248,7 @@ export default {
 
         let response = await this.$axios.post(
           "http://localhost:3333/api/users/verify",
-          { authorization: `Bearer ${token}` }
+          { authorization: Bearer ${token} }
         );
 
         if (response.status === 200) {
