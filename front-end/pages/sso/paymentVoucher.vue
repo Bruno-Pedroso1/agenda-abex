@@ -5,7 +5,7 @@
     <v-row>
       <v-col>
         <h1 class="d-flex align-center flex-column">
-          Cadastro de Pagamento - Voucher
+          Lista  de Pagamento - Voucher
         </h1>
       </v-col>
     </v-row>
@@ -22,14 +22,7 @@
               ></v-text-field>
             </v-col>
             <v-col md="4" cols="2" class="text-end">
-              <v-btn
-                color="green"
-                @click="(dialog = true), clear()"
-                block
-                class="mt-3"
-              >
-                Cadastrar
-              </v-btn>
+              
             </v-col>
           </v-row>
         </v-card-title>
@@ -171,10 +164,10 @@ export default {
         };
 
         if (this.id) {
-          await this.$api.patch(`/api/payment-voucher/${this.id}`, request);
+          await this.$api.patch(/api/payment-voucher/${this.id}, request);
           this.$toast.success("Pagamento - Voucher Editado");
         } else {
-          await this.$api.post(`/api/payment-voucher`, request);
+          await this.$api.post(/api/payment-voucher, request);
           this.$toast.success("Pagamento cadastrado.");
         }
         this.selectedPayment = null;
@@ -215,7 +208,7 @@ export default {
     },
     async destroy(item) {
       try {
-        await this.$api.delete(`/api/payment-voucher/${item.id}`);
+        await this.$api.delete(/api/payment-voucher/${item.id});
         await this.getAllPaymentVoucher();
         // this.$toast.success("Item Excluído");
       } catch (error) {
@@ -233,7 +226,7 @@ export default {
 
         let response = await this.$axios.post(
           "http://localhost:3333/api/users/verify",
-          { authorization: `Bearer ${token}` }
+          { authorization: Bearer ${token} }
         );
 
         if (response.status === 200) {
