@@ -164,10 +164,10 @@ export default {
         };
 
         if (this.id) {
-          await this.$api.patch(/api/payment-voucher/${this.id}, request);
+          await this.$api.patch(`/api/payment-voucher/${this.id}`, request);
           this.$toast.success("Pagamento - Voucher Editado");
         } else {
-          await this.$api.post(/api/payment-voucher, request);
+          await this.$api.post(`/api/payment-voucher`, request);
           this.$toast.success("Pagamento cadastrado.");
         }
         this.selectedPayment = null;
@@ -208,7 +208,7 @@ export default {
     },
     async destroy(item) {
       try {
-        await this.$api.delete(/api/payment-voucher/${item.id});
+        await this.$api.delete(`/api/payment-voucher/${item.id}`);
         await this.getAllPaymentVoucher();
         // this.$toast.success("Item Excluído");
       } catch (error) {
@@ -223,11 +223,16 @@ export default {
           this.$toast.warning("Por favor efetue o login");
           return this.$router.push("/login");
         }
-
         let response = await this.$axios.post(
-          "http://localhost:3333/api/users/verify",
-          { authorization: Bearer ${token} }
-        );
+  "http://localhost:3333/api/users/verify",
+  {},
+  {
+    headers: {
+      authorization: `Bearer ${token}`
+    }
+  }
+);
+
 
         if (response.status === 200) {
           if (

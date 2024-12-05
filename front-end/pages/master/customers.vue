@@ -63,7 +63,7 @@
 
 <script>
 export default {
-  layout: "master",
+  layout: "admin",
   data() {
     return {
       dialog: false,

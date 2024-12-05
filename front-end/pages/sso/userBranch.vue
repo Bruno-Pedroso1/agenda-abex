@@ -183,10 +183,10 @@ export default {
         };
 
         if (this.id) {
-          await this.$api.patch(/api/user-branches/${this.id}, request);
+          await this.$api.patch(`/api/user-branches/${this.id}`, request);
           this.$toast.success("Filial - Usuário Editado");
         } else {
-          await this.$api.post(/api/user-branches, request);
+          await this.$api.post(`/api/user-branches`, request);
           this.$toast.success("Usuário cadastrado na filial");
         }
         this.selectedIdUser = null;
@@ -230,7 +230,7 @@ export default {
     },
     async destroy(item) {
       try {
-        await this.$api.delete(/api/user-branches/${item.id});
+        await this.$api.delete(`/api/user-branches/${item.id}`);
         await this.getAllUserBranches();
         this.$toast.success("Usuário removido da filial");
       } catch (error) {
@@ -247,9 +247,15 @@ export default {
         }
 
         let response = await this.$axios.post(
-          "http://localhost:3333/api/users/verify",
-          { authorization: Bearer ${token} }
-        );
+  "http://localhost:3333/api/users/verify",
+  {},
+  {
+    headers: {
+      authorization: `Bearer ${token}`
+    }
+  }
+);
+
 
         if (response.status === 200) {
           if (

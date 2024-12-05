@@ -22,7 +22,6 @@
             </v-col>
             <v-col md="4" cols="2" class="text-end">
               
-              </v-btn>
             </v-col>
           </v-row>
         </v-card-title>
@@ -201,7 +200,6 @@ export default {
       this.id = item.id;
       this.dialog = true;
     },
-
     async persist() {
       try {
         const request = {
@@ -211,10 +209,10 @@ export default {
           idPaymentMethod: this.selectedPaymentMethod,
         };
         if (this.id) {
-          await this.$api.patch(/api/payments/${this.id}, request);
+          await this.$api.patch(`/api/payments/${this.id}`, request);
           this.$toast.success("Pagamento Editado");
         } else {
-          await this.$api.post(/api/payments, request);
+          await this.$api.post(`/api/payments`, request);
           this.$toast.success("Pagamento Cadastrado");
         }
         this.status = null;
@@ -229,6 +227,7 @@ export default {
         this.$toast.error(error.message);
       }
     },
+
     async getAllUsers() {
       try {
         const response = await this.$api.get("/api/users");
@@ -267,7 +266,7 @@ export default {
 
     async destroy(item) {
       try {
-        await this.$api.delete(/api/payments/${item.id});
+        await this.$api.delete(`/api/payments/${item.id}`);
         // this.$toast.success("Pagamento Removido");
         await this.getAllPayments();
       } catch (error) {
@@ -281,11 +280,15 @@ export default {
           this.$toast.info("Você não tem permissão para acessar esse recurso");
           return this.$router.push("/customer/home");
         }
-
         let response = await this.$axios.post(
-          "http://localhost:3333/api/users/verify",
-          { authorization: Bearer ${token} }
-        );
+  "http://localhost:3333/api/users/verify",
+  {},
+  {
+    headers: {
+      authorization: `Bearer ${token}`
+    }
+  }
+);
 
         if (response.status === 200) {
           if (
