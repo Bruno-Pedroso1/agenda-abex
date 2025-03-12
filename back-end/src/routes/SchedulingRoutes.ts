@@ -6,6 +6,7 @@ import superAdminOnlyMiddleware from "../utils/superAdminOnlyMiddleware";
 
 const router = express.Router();
 
+router.get("/services-city", SchedulingController.getServicesByCity);
 router.post("/schedulings", SchedulingController.createScheduling);
 router.get("/schedulings", SchedulingController.getAllSchedulings);
 router.get("/schedulings/:id", SchedulingController.getSchedulingById);

@@ -220,6 +220,74 @@ const SchedulingController = {
       res.status(500).json({ error: "Erro ao buscar dados!" });
     }
   },
+
+  getServicesByCity: async (req: Request, res: Response): Promise<void> => {
+    try {
+      const response = await Scheduling.sequelize?.query(
+        `
+SELECT
+    ci.name AS cidade,
+    sv.name AS servico_mais_agendado,
+    COUNT(sch.id) AS quantidade_agendamentos
+FROM
+    schedule sch
+JOIN
+    branches br ON sch.id_branch = br.id
+JOIN
+    addresses ad ON br.id_addresses = ad.id
+JOIN
+    cities ci ON ad.id_city = ci.id
+JOIN
+    services sv ON sch.id_services = sv.id
+JOIN (
+    SELECT
+        ad.id_city,
+        sch.id_services,
+        COUNT(sch.id) AS service_count
+    FROM
+        schedule sch
+    JOIN
+        branches br ON sch.id_branch = br.id
+    JOIN
+        addresses ad ON br.id_addresses = ad.id
+    GROUP BY
+        ad.id_city, sch.id_services
+) AS service_counts ON service_counts.id_city = ci.id AND service_counts.id_services = sv.id
+JOIN (
+    SELECT
+        id_city,
+        MAX(service_count) AS max_service_count
+    FROM (
+        SELECT
+            ad.id_city,
+            sch.id_services,
+            COUNT(sch.id) AS service_count
+        FROM
+            schedule sch
+        JOIN
+            branches br ON sch.id_branch = br.id
+        JOIN
+            addresses ad ON br.id_addresses = ad.id
+        GROUP BY
+            ad.id_city, sch.id_services
+    ) AS service_counts_per_city
+    GROUP BY
+        id_city
+) AS max_service_counts ON max_service_counts.id_city = ci.id
+                         AND service_counts.service_count = max_service_counts.max_service_count
+GROUP BY
+    ci.id, sv.id
+ORDER BY
+    ci.name;
+        `,
+        { type: QueryTypes.SELECT }
+      );
+      res.json(response);
+    } catch (error) {
+      console.error("Erro ao buscar dados: ", error);
+      res.status(500).json({ error: "Erro ao buscar dados!" });
+    }
+  },
 };
 
 export default SchedulingController;

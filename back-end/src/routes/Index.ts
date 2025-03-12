@@ -16,6 +16,7 @@ import VoucherRoutes from "./VoucherRoutes";
 import StateRoutes from "./StateRoutes";
 import ServicesRoutes from "./ServicesRoutes";
 import PaymentVoucherRoutes from "./PaymentVoucherRoutes";
+import SchedulingController from "../controllers/SchedulingController";
 import authMiddleware from "../utils/authMiddleware";
 import superAdminOnlyMiddleware from "../utils/superAdminOnlyMiddleware";
 import superAndAdminMiddleware from "../utils/superAndAdminMiddleware";
@@ -148,6 +149,7 @@ router.patch("/services/:id", ServicesRoutes);
 router.delete("/services/:id", ServicesRoutes);
 
 // SCHEDULING (AGENDAMENTOS)
+router.get("/services-city", SchedulingRoutes);
 router.post("/schedulings", SchedulingRoutes);
 router.get("/schedulings", SchedulingRoutes);
 router.get("/schedulings/:id", SchedulingRoutes);

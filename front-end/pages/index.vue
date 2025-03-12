@@ -51,6 +51,12 @@
         >Acessar</v-btn
       >
     </v-row>
+    <v-btn 
+    @click="getServiceByCity">
+
+      TESTE
+    </v-btn>
+
 
     <v-row class="justify-center mb-5 text-center">
       <span
@@ -121,6 +127,18 @@ export default {
 
 
   methods: {
+    async getServiceByCity() {
+      console.log('click');
+      
+      try {
+        const response = await this.$api.get("/api/services-city");
+        this.test = response;
+        console.log('TESTE 1', response)
+      } catch (error) {
+        this.$toast.error('err');
+      }
+    },
+
     async getUserByToken() {
       const { data } = await this.$api.get("/api/users/by-token");
       console.log(data);
