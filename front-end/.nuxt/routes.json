@@ -2,381 +2,444 @@
   {
     "name": "agendamento",
     "path": "/agendamento",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\agendamento.vue",
-    "chunkName": "pages/agendamento"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\agendamento.vue",
+    "chunkName": "pages/agendamento",
+    "_name": "_f92e155e"
   },
   {
     "name": "branchCompany",
     "path": "/branchCompany",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\branchCompany.vue",
-    "chunkName": "pages/branchCompany"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\branchCompany.vue",
+    "chunkName": "pages/branchCompany",
+    "_name": "_bdd960f2"
   },
   {
     "name": "categories",
     "path": "/categories",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\categories.vue",
-    "chunkName": "pages/categories"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\categories.vue",
+    "chunkName": "pages/categories",
+    "_name": "_1aecdd80"
   },
   {
     "name": "companies",
     "path": "/companies",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\companies.vue",
-    "chunkName": "pages/companies"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\companies.vue",
+    "chunkName": "pages/companies",
+    "_name": "_5ec126e7"
   },
   {
     "name": "register",
     "path": "/register",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\register.vue",
-    "chunkName": "pages/register"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\register.vue",
+    "chunkName": "pages/register",
+    "_name": "_b5fddd72"
   },
   {
     "name": "services",
     "path": "/services",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\services.vue",
-    "chunkName": "pages/services"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\services.vue",
+    "chunkName": "pages/services",
+    "_name": "_214c9d82"
   },
   {
     "name": "support",
     "path": "/support",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\support.vue",
-    "chunkName": "pages/support"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\support.vue",
+    "chunkName": "pages/support",
+    "_name": "_2671d04a"
   },
   {
     "name": "userHome",
     "path": "/userHome",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\userHome.vue",
-    "chunkName": "pages/userHome"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\userHome.vue",
+    "chunkName": "pages/userHome",
+    "_name": "_7feaa324"
   },
   {
     "name": "voucherBranch",
     "path": "/voucherBranch",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\voucherBranch.vue",
-    "chunkName": "pages/voucherBranch"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\voucherBranch.vue",
+    "chunkName": "pages/voucherBranch",
+    "_name": "_08230308"
   },
   {
     "name": "voucherUser",
     "path": "/voucherUser",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\voucherUser.vue",
-    "chunkName": "pages/voucherUser"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\voucherUser.vue",
+    "chunkName": "pages/voucherUser",
+    "_name": "_001c1eb6"
   },
   {
     "name": "admin-addresses",
     "path": "/admin/addresses",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\admin\\\\addresses.vue",
-    "chunkName": "pages/admin/addresses"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\admin\\\\addresses.vue",
+    "chunkName": "pages/admin/addresses",
+    "_name": "_0d5b97d2"
   },
   {
     "name": "admin-agenda",
     "path": "/admin/agenda",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\admin\\\\agenda.vue",
-    "chunkName": "pages/admin/agenda"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\admin\\\\agenda.vue",
+    "chunkName": "pages/admin/agenda",
+    "_name": "_f3ee1232"
   },
   {
     "name": "admin-customers",
     "path": "/admin/customers",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\admin\\\\customers.vue",
-    "chunkName": "pages/admin/customers"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\admin\\\\customers.vue",
+    "chunkName": "pages/admin/customers",
+    "_name": "_efcab96c"
   },
   {
     "name": "admin-dashboard",
     "path": "/admin/dashboard",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\admin\\\\dashboard.vue",
-    "chunkName": "pages/admin/dashboard"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\admin\\\\dashboard.vue",
+    "chunkName": "pages/admin/dashboard",
+    "_name": "_45b04bee"
   },
   {
     "name": "admin-management",
     "path": "/admin/management",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\admin\\\\management.vue",
-    "chunkName": "pages/admin/management"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\admin\\\\management.vue",
+    "chunkName": "pages/admin/management",
+    "_name": "_835ef3c4"
   },
   {
     "name": "admin-modeloDashBoard",
     "path": "/admin/modeloDashBoard",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\admin\\\\modeloDashBoard.vue",
-    "chunkName": "pages/admin/modeloDashBoard"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\admin\\\\modeloDashBoard.vue",
+    "chunkName": "pages/admin/modeloDashBoard",
+    "_name": "_1f14fb63"
   },
   {
     "name": "admin-payments",
     "path": "/admin/payments",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\admin\\\\payments.vue",
-    "chunkName": "pages/admin/payments"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\admin\\\\payments.vue",
+    "chunkName": "pages/admin/payments",
+    "_name": "_2de6ecc8"
   },
   {
     "name": "admin-schedule",
     "path": "/admin/schedule",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\admin\\\\schedule.vue",
-    "chunkName": "pages/admin/schedule"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\admin\\\\schedule.vue",
+    "chunkName": "pages/admin/schedule",
+    "_name": "_e080a99c"
   },
   {
     "name": "admin-schedules",
     "path": "/admin/schedules",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\admin\\\\schedules.vue",
-    "chunkName": "pages/admin/schedules"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\admin\\\\schedules.vue",
+    "chunkName": "pages/admin/schedules",
+    "_name": "_6be15c31"
   },
   {
     "name": "admin-services",
     "path": "/admin/services",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\admin\\\\services.vue",
-    "chunkName": "pages/admin/services"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\admin\\\\services.vue",
+    "chunkName": "pages/admin/services",
+    "_name": "_60fbed79"
   },
   {
     "name": "admin-settings",
     "path": "/admin/settings",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\admin\\\\settings.vue",
-    "chunkName": "pages/admin/settings"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\admin\\\\settings.vue",
+    "chunkName": "pages/admin/settings",
+    "_name": "_6a542ebe"
   },
   {
     "name": "admin-users",
     "path": "/admin/users",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\admin\\\\users.vue",
-    "chunkName": "pages/admin/users"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\admin\\\\users.vue",
+    "chunkName": "pages/admin/users",
+    "_name": "_add6cc06"
   },
   {
     "name": "admin-voucherAdmin",
     "path": "/admin/voucherAdmin",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\admin\\\\voucherAdmin.vue",
-    "chunkName": "pages/admin/voucherAdmin"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\admin\\\\voucherAdmin.vue",
+    "chunkName": "pages/admin/voucherAdmin",
+    "_name": "_2505bb5c"
   },
   {
     "name": "customer-addresses",
     "path": "/customer/addresses",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\customer\\\\addresses.vue",
-    "chunkName": "pages/customer/addresses"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\customer\\\\addresses.vue",
+    "chunkName": "pages/customer/addresses",
+    "_name": "_22325de0"
   },
   {
     "name": "customer-customerVoucher",
     "path": "/customer/customerVoucher",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\customer\\\\customerVoucher.vue",
-    "chunkName": "pages/customer/customerVoucher"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\customer\\\\customerVoucher.vue",
+    "chunkName": "pages/customer/customerVoucher",
+    "_name": "_3d8df6de"
   },
   {
     "name": "customer-data",
     "path": "/customer/data",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\customer\\\\data.vue",
-    "chunkName": "pages/customer/data"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\customer\\\\data.vue",
+    "chunkName": "pages/customer/data",
+    "_name": "_333428a8"
   },
   {
     "name": "customer-historic",
     "path": "/customer/historic",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\customer\\\\historic.vue",
-    "chunkName": "pages/customer/historic"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\customer\\\\historic.vue",
+    "chunkName": "pages/customer/historic",
+    "_name": "_6fbb00e1"
   },
   {
     "name": "customer-home",
     "path": "/customer/home",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\customer\\\\home.vue",
-    "chunkName": "pages/customer/home"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\customer\\\\home.vue",
+    "chunkName": "pages/customer/home",
+    "_name": "_5ec84e61"
   },
   {
     "name": "customer-payments",
     "path": "/customer/payments",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\customer\\\\payments.vue",
-    "chunkName": "pages/customer/payments"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\customer\\\\payments.vue",
+    "chunkName": "pages/customer/payments",
+    "_name": "_398366a2"
   },
   {
     "name": "customer-schedule",
     "path": "/customer/schedule",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\customer\\\\schedule.vue",
-    "chunkName": "pages/customer/schedule"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\customer\\\\schedule.vue",
+    "chunkName": "pages/customer/schedule",
+    "_name": "_45170b19"
   },
   {
     "name": "master-customers",
     "path": "/master/customers",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\master\\\\customers.vue",
-    "chunkName": "pages/master/customers"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\master\\\\customers.vue",
+    "chunkName": "pages/master/customers",
+    "_name": "_33d1ea3f"
   },
   {
     "name": "master-dashboard",
     "path": "/master/dashboard",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\master\\\\dashboard.vue",
-    "chunkName": "pages/master/dashboard"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\master\\\\dashboard.vue",
+    "chunkName": "pages/master/dashboard",
+    "_name": "_ee41be04"
   },
   {
     "name": "master-employee",
     "path": "/master/employee",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\master\\\\employee.vue",
-    "chunkName": "pages/master/employee"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\master\\\\employee.vue",
+    "chunkName": "pages/master/employee",
+    "_name": "_b220bb98"
   },
   {
     "name": "master-home",
     "path": "/master/home",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\master\\\\home.vue",
-    "chunkName": "pages/master/home"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\master\\\\home.vue",
+    "chunkName": "pages/master/home",
+    "_name": "_55ea56e5"
   },
   {
     "name": "master-management",
     "path": "/master/management",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\master\\\\management.vue",
-    "chunkName": "pages/master/management"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\master\\\\management.vue",
+    "chunkName": "pages/master/management",
+    "_name": "_ecfbc46e"
   },
   {
     "name": "master-payments",
     "path": "/master/payments",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\master\\\\payments.vue",
-    "chunkName": "pages/master/payments"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\master\\\\payments.vue",
+    "chunkName": "pages/master/payments",
+    "_name": "_1d3f199a"
   },
   {
     "name": "master-schedule",
     "path": "/master/schedule",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\master\\\\schedule.vue",
-    "chunkName": "pages/master/schedule"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\master\\\\schedule.vue",
+    "chunkName": "pages/master/schedule",
+    "_name": "_5339319d"
   },
   {
     "name": "master-voucher",
     "path": "/master/voucher",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\master\\\\voucher.vue",
-    "chunkName": "pages/master/voucher"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\master\\\\voucher.vue",
+    "chunkName": "pages/master/voucher",
+    "_name": "_31c316d0"
   },
   {
     "name": "sso-address",
     "path": "/sso/address",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\sso\\\\address.vue",
-    "chunkName": "pages/sso/address"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\sso\\\\address.vue",
+    "chunkName": "pages/sso/address",
+    "_name": "_31d35ee9"
   },
   {
     "name": "sso-branch",
     "path": "/sso/branch",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\sso\\\\branch.vue",
-    "chunkName": "pages/sso/branch"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\sso\\\\branch.vue",
+    "chunkName": "pages/sso/branch",
+    "_name": "_b1266586"
   },
   {
     "name": "sso-cities",
     "path": "/sso/cities",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\sso\\\\cities.vue",
-    "chunkName": "pages/sso/cities"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\sso\\\\cities.vue",
+    "chunkName": "pages/sso/cities",
+    "_name": "_168a3764"
   },
   {
     "name": "sso-company",
     "path": "/sso/company",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\sso\\\\company.vue",
-    "chunkName": "pages/sso/company"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\sso\\\\company.vue",
+    "chunkName": "pages/sso/company",
+    "_name": "_659d92f2"
   },
   {
     "name": "sso-countries",
     "path": "/sso/countries",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\sso\\\\countries.vue",
-    "chunkName": "pages/sso/countries"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\sso\\\\countries.vue",
+    "chunkName": "pages/sso/countries",
+    "_name": "_3a464b2e"
   },
   {
     "name": "sso-getCustomer",
     "path": "/sso/getCustomer",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\sso\\\\getCustomer.vue",
-    "chunkName": "pages/sso/getCustomer"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\sso\\\\getCustomer.vue",
+    "chunkName": "pages/sso/getCustomer",
+    "_name": "_118159c9"
   },
   {
     "name": "sso-getMasterUsers",
     "path": "/sso/getMasterUsers",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\sso\\\\getMasterUsers.vue",
-    "chunkName": "pages/sso/getMasterUsers"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\sso\\\\getMasterUsers.vue",
+    "chunkName": "pages/sso/getMasterUsers",
+    "_name": "_6778352b"
   },
   {
     "name": "sso-getSuperUsers",
     "path": "/sso/getSuperUsers",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\sso\\\\getSuperUsers.vue",
-    "chunkName": "pages/sso/getSuperUsers"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\sso\\\\getSuperUsers.vue",
+    "chunkName": "pages/sso/getSuperUsers",
+    "_name": "_6cc3e4f8"
   },
   {
     "name": "sso-getUsersAdmin",
     "path": "/sso/getUsersAdmin",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\sso\\\\getUsersAdmin.vue",
-    "chunkName": "pages/sso/getUsersAdmin"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\sso\\\\getUsersAdmin.vue",
+    "chunkName": "pages/sso/getUsersAdmin",
+    "_name": "_6ec34ed2"
   },
   {
     "name": "sso-home",
     "path": "/sso/home",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\sso\\\\home.vue",
-    "chunkName": "pages/sso/home"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\sso\\\\home.vue",
+    "chunkName": "pages/sso/home",
+    "_name": "_6f6e5aba"
   },
   {
     "name": "sso-integration",
     "path": "/sso/integration",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\sso\\\\integration.vue",
-    "chunkName": "pages/sso/integration"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\sso\\\\integration.vue",
+    "chunkName": "pages/sso/integration",
+    "_name": "_333c5b6e"
   },
   {
     "name": "sso-paymentMethods",
     "path": "/sso/paymentMethods",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\sso\\\\paymentMethods.vue",
-    "chunkName": "pages/sso/paymentMethods"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\sso\\\\paymentMethods.vue",
+    "chunkName": "pages/sso/paymentMethods",
+    "_name": "_aca86332"
   },
   {
     "name": "sso-payments",
     "path": "/sso/payments",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\sso\\\\payments.vue",
-    "chunkName": "pages/sso/payments"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\sso\\\\payments.vue",
+    "chunkName": "pages/sso/payments",
+    "_name": "_4236f6f0"
   },
   {
     "name": "sso-paymentVoucher",
     "path": "/sso/paymentVoucher",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\sso\\\\paymentVoucher.vue",
-    "chunkName": "pages/sso/paymentVoucher"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\sso\\\\paymentVoucher.vue",
+    "chunkName": "pages/sso/paymentVoucher",
+    "_name": "_e663993a"
   },
   {
     "name": "sso-schedule",
     "path": "/sso/schedule",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\sso\\\\schedule.vue",
-    "chunkName": "pages/sso/schedule"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\sso\\\\schedule.vue",
+    "chunkName": "pages/sso/schedule",
+    "_name": "_40bd42f2"
   },
   {
     "name": "sso-schedules",
     "path": "/sso/schedules",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\sso\\\\schedules.vue",
-    "chunkName": "pages/sso/schedules"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\sso\\\\schedules.vue",
+    "chunkName": "pages/sso/schedules",
+    "_name": "_4ad2871e"
   },
   {
     "name": "sso-scheduling",
     "path": "/sso/scheduling",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\sso\\\\scheduling.vue",
-    "chunkName": "pages/sso/scheduling"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\sso\\\\scheduling.vue",
+    "chunkName": "pages/sso/scheduling",
+    "_name": "_46540aaf"
   },
   {
     "name": "sso-services",
     "path": "/sso/services",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\sso\\\\services.vue",
-    "chunkName": "pages/sso/services"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\sso\\\\services.vue",
+    "chunkName": "pages/sso/services",
+    "_name": "_11f98539"
   },
   {
     "name": "sso-states",
     "path": "/sso/states",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\sso\\\\states.vue",
-    "chunkName": "pages/sso/states"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\sso\\\\states.vue",
+    "chunkName": "pages/sso/states",
+    "_name": "_4a40459d"
   },
   {
     "name": "sso-user",
     "path": "/sso/user",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\sso\\\\user.vue",
-    "chunkName": "pages/sso/user"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\sso\\\\user.vue",
+    "chunkName": "pages/sso/user",
+    "_name": "_7c86fba6"
   },
   {
     "name": "sso-userBranch",
     "path": "/sso/userBranch",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\sso\\\\userBranch.vue",
-    "chunkName": "pages/sso/userBranch"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\sso\\\\userBranch.vue",
+    "chunkName": "pages/sso/userBranch",
+    "_name": "_89564c30"
   },
   {
     "name": "sso-voucher",
     "path": "/sso/voucher",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\sso\\\\voucher.vue",
-    "chunkName": "pages/sso/voucher"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\sso\\\\voucher.vue",
+    "chunkName": "pages/sso/voucher",
+    "_name": "_30d864a3"
   },
   {
     "name": "superadmin-company",
     "path": "/superadmin/company",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\superadmin\\\\company.vue",
-    "chunkName": "pages/superadmin/company"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\superadmin\\\\company.vue",
+    "chunkName": "pages/superadmin/company",
+    "_name": "_2f3e7fd5"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\index.vue",
-    "chunkName": "pages/index"
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\index.vue",
+    "chunkName": "pages/index",
+    "_name": "_01fa345e"
   },
   {
     "name": "Welcome",
     "path": "/",
-    "component": "C:\\\\Users\\\\Usuario\\\\Desktop\\\\abex-proj\\\\agenda-abex\\\\front-end\\\\pages\\\\index.vue",
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\abex4\\\\agenda-abex\\\\front-end\\\\pages\\\\index.vue",
     "middleware": [
       "adminOnlyMiddleware"
-    ]
+    ],
+    "_name": "_01fa345e"
   }
 ]

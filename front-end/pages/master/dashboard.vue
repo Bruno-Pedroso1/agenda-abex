@@ -86,7 +86,7 @@ import GraficoTortaMaster from "~/components/GraficoTortaMaster.vue";
 
 export default {
   name: "masterDashboard",
-  layout: "master",
+  layout: "admin",
   data() {
     return {
       mesAtual: new Date().getMonth(),

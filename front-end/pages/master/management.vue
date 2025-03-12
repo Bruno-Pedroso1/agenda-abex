@@ -7,7 +7,7 @@
 <script>
 export default {
   name: 'manegementMaster',
-  layout: 'master',
+  layout: 'admin',
 
   data() {
     return {

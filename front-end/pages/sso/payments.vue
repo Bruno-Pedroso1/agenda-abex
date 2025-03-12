@@ -4,7 +4,7 @@
   <v-container>
     <v-row>
       <v-col>
-        <h1 class="d-flex align-center flex-column">Cadastro de Pagamentos</h1>
+        <h1 class="d-flex align-center flex-column">Lista de Pagamentos</h1>
       </v-col>
     </v-row>
 
@@ -21,14 +21,7 @@
               ></v-text-field>
             </v-col>
             <v-col md="4" cols="2" class="text-end">
-              <v-btn
-                color="green"
-                @click="(dialog = true), clear()"
-                block
-                class="mt-3"
-              >
-                Cadastrar
-              </v-btn>
+              
             </v-col>
           </v-row>
         </v-card-title>
@@ -207,7 +200,6 @@ export default {
       this.id = item.id;
       this.dialog = true;
     },
-
     async persist() {
       try {
         const request = {
@@ -235,6 +227,7 @@ export default {
         this.$toast.error(error.message);
       }
     },
+
     async getAllUsers() {
       try {
         const response = await this.$api.get("/api/users");
@@ -287,11 +280,15 @@ export default {
           this.$toast.info("Você não tem permissão para acessar esse recurso");
           return this.$router.push("/customer/home");
         }
-
         let response = await this.$axios.post(
-          "http://localhost:3333/api/users/verify",
-          { authorization: `Bearer ${token}` }
-        );
+  "http://localhost:3333/api/users/verify",
+  {},
+  {
+    headers: {
+      authorization: `Bearer ${token}`
+    }
+  }
+);
 
         if (response.status === 200) {
           if (
