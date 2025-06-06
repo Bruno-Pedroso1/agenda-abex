@@ -51,11 +51,10 @@
         >Acessar</v-btn
       >
     </v-row>
-    <v-btn 
-    @click="getServiceByCity">
+    <a class="d-flex justify-center mb-5" href="/criarp">
+Clique para saber como cadastrar sua empresa
+</a>
 
-      TESTE
-    </v-btn>
 
 
     <v-row class="justify-center mb-5 text-center">
