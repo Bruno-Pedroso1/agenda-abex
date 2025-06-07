@@ -42,7 +42,7 @@ Voltar ao login
         search: "",
         items: [],
         headers: [
-          { text: "Serviço Mais Agendado", value: "servico_mais_agendado", align: "center" },
+          { text: "Serviços Mais Agendados", value: "servico", align: "center" },
           { text: "Quantidade de Agendamentos", value: "quantidade_agendamentos", align: "center" },
         ],
       };

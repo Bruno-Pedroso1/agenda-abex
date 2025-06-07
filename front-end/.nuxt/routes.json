@@ -56,6 +56,13 @@
     "_name": "_4ea11060"
   },
   {
+    "name": "teste",
+    "path": "/teste",
+    "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\dev\\\\agenda-abex\\\\front-end\\\\pages\\\\teste.vue",
+    "chunkName": "pages/teste",
+    "_name": "_a1f6ab58"
+  },
+  {
     "name": "userHome",
     "path": "/userHome",
     "component": "C:\\\\Users\\\\Emanuely Jochims\\\\Desktop\\\\dev\\\\agenda-abex\\\\front-end\\\\pages\\\\userHome.vue",

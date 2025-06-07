@@ -12,6 +12,7 @@ const _c4101758 = () => interopDefault(import('..\\pages\\criarp.vue' /* webpack
 const _3624aff2 = () => interopDefault(import('..\\pages\\register.vue' /* webpackChunkName: "pages/register" */))
 const _9b1f87a6 = () => interopDefault(import('..\\pages\\services.vue' /* webpackChunkName: "pages/services" */))
 const _4ea11060 = () => interopDefault(import('..\\pages\\support.vue' /* webpackChunkName: "pages/support" */))
+const _a1f6ab58 = () => interopDefault(import('..\\pages\\teste.vue' /* webpackChunkName: "pages/teste" */))
 const _512e4d19 = () => interopDefault(import('..\\pages\\userHome.vue' /* webpackChunkName: "pages/userHome" */))
 const _6a2a52b1 = () => interopDefault(import('..\\pages\\voucherBranch.vue' /* webpackChunkName: "pages/voucherBranch" */))
 const _000f4e1a = () => interopDefault(import('..\\pages\\voucherUser.vue' /* webpackChunkName: "pages/voucherUser" */))
@@ -111,6 +112,10 @@ export const routerOptions = {
     path: "/support",
     component: _4ea11060,
     name: "support"
+  }, {
+    path: "/teste",
+    component: _a1f6ab58,
+    name: "teste"
   }, {
     path: "/userHome",
     component: _512e4d19,

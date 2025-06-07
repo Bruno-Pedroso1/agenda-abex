@@ -456,7 +456,6 @@ export default {
 
     async getUserByToken() {
       const { data } = await this.$api.get("/api/users/by-token");
-      console.log("SOCORRO", data);
       if (data) {
         this.user = {
           email: data.email,
