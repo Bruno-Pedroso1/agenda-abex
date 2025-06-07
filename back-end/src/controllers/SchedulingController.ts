@@ -198,6 +198,42 @@ const SchedulingController = {
       res.status(500).json({ error: "Erro ao buscar dados!" });
     }
   },
+
+
+  getDadosGrafico: async (req: Request, res: Response): Promise<void> => {
+    try {
+      const response = await Scheduling.sequelize?.query(
+        `
+         select
+    sch.id_user AS id_funcionario,
+    sv.name AS nome_servico,
+    count(schd.id) AS quantidade_agendamentos,
+    sum(sch.service_price) AS total_arrecadado
+from
+    scheduling schd
+join
+    schedule sch ON schd.id_schedule = sch.id
+join
+    services sv ON sch.id_services = sv.id
+where
+    schd.status = 'Confirmado'
+group by
+    sch.id_user,
+    sv.name
+order by
+    sch.id_user,
+    quantidade_agendamentos desc;
+
+        `,
+        { type: QueryTypes.SELECT }
+      );
+      res.json(response);
+    } catch (error) {
+      console.error("Erro ao buscar dados: ", error);
+      res.status(500).json({ error: "Erro ao buscar dados!" });
+    }
+  },
+
 // exibe serviço mais agendado.
   getTopService: async (req: Request, res: Response): Promise<void> => {
     try {
@@ -227,58 +263,27 @@ const SchedulingController = {
         `
 SELECT
     ci.name AS cidade,
-    sv.name AS servico_mais_agendado,
-    COUNT(sch.id) AS quantidade_agendamentos
+    sv.name AS servico,
+    COUNT(schd.id) AS quantidade_agendamentos
 FROM
-    schedule sch
+    scheduling schd
+JOIN
+    schedule sch ON schd.id_schedule = sch.id
+JOIN
+    services sv ON sch.id_services = sv.id
 JOIN
     branches br ON sch.id_branch = br.id
 JOIN
     addresses ad ON br.id_addresses = ad.id
 JOIN
     cities ci ON ad.id_city = ci.id
-JOIN
-    services sv ON sch.id_services = sv.id
-JOIN (
-    SELECT
-        ad.id_city,
-        sch.id_services,
-        COUNT(sch.id) AS service_count
-    FROM
-        schedule sch
-    JOIN
-        branches br ON sch.id_branch = br.id
-    JOIN
-        addresses ad ON br.id_addresses = ad.id
-    GROUP BY
-        ad.id_city, sch.id_services
-) AS service_counts ON service_counts.id_city = ci.id AND service_counts.id_services = sv.id
-JOIN (
-    SELECT
-        id_city,
-        MAX(service_count) AS max_service_count
-    FROM (
-        SELECT
-            ad.id_city,
-            sch.id_services,
-            COUNT(sch.id) AS service_count
-        FROM
-            schedule sch
-        JOIN
-            branches br ON sch.id_branch = br.id
-        JOIN
-            addresses ad ON br.id_addresses = ad.id
-        GROUP BY
-            ad.id_city, sch.id_services
-    ) AS service_counts_per_city
-    GROUP BY
-        id_city
-) AS max_service_counts ON max_service_counts.id_city = ci.id
-                         AND service_counts.service_count = max_service_counts.max_service_count
+WHERE
+    schd.status = 'Confirmado'
 GROUP BY
-    ci.id, sv.id
+    ci.name, sv.name
 ORDER BY
-    ci.name;
+    ci.name, quantidade_agendamentos DESC;
+
         `,
         { type: QueryTypes.SELECT }
       );

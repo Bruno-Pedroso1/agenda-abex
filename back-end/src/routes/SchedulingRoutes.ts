@@ -15,5 +15,6 @@ router.delete("/schedulings/:id", SchedulingController.deleteScheduling);
 router.get("/agendamentos", SchedulingController.getDadosScheduling);
 router.get("/details", SchedulingController.getDetails);
 router.get("/top-service", SchedulingController.getTopService);
+router.get("/graficos", SchedulingController.getDadosGrafico);
 
 export default router;

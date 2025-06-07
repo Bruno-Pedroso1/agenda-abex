@@ -158,6 +158,7 @@ router.delete("/schedulings/:id", SchedulingRoutes);
 router.get("/agendamentos", SchedulingRoutes);
 router.get("/details", SchedulingRoutes);
 router.get("/top-service", SchedulingRoutes);
+router.get("/graficos", SchedulingRoutes);
 
 // SCHEDULE (AGENDAS)
 router.post("/schedule", ScheduleRoutes);
