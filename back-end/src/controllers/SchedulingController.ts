@@ -200,7 +200,7 @@ const SchedulingController = {
   },
 
 
-  getDadosGrafico: async (req: Request, res: Response): Promise<void> => {
+  getDadosGraficoAdmin: async (req: Request, res: Response): Promise<void> => {
     try {
       const response = await Scheduling.sequelize?.query(
         `
@@ -257,42 +257,6 @@ order by
     }
   },
 
-  getServicesByCity: async (req: Request, res: Response): Promise<void> => {
-    try {
-      const response = await Scheduling.sequelize?.query(
-        `
-SELECT
-    ci.name AS cidade,
-    sv.name AS servico,
-    COUNT(schd.id) AS quantidade_agendamentos
-FROM
-    scheduling schd
-JOIN
-    schedule sch ON schd.id_schedule = sch.id
-JOIN
-    services sv ON sch.id_services = sv.id
-JOIN
-    branches br ON sch.id_branch = br.id
-JOIN
-    addresses ad ON br.id_addresses = ad.id
-JOIN
-    cities ci ON ad.id_city = ci.id
-WHERE
-    schd.status = 'Confirmado'
-GROUP BY
-    ci.name, sv.name
-ORDER BY
-    ci.name, quantidade_agendamentos DESC;
-
-        `,
-        { type: QueryTypes.SELECT }
-      );
-      res.json(response);
-    } catch (error) {
-      console.error("Erro ao buscar dados: ", error);
-      res.status(500).json({ error: "Erro ao buscar dados!" });
-    }
-  },
 };
 
 export default SchedulingController;

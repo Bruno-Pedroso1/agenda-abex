@@ -14,4 +14,5 @@ router.patch("/states/:id", StateController.updateState);
 router.delete("/states/:id", StateController.deleteState);
 router.get("/state-by-name", StateController.getStateByName);
 
+
 export default router;

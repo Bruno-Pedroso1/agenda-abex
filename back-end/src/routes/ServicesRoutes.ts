@@ -11,5 +11,6 @@ router.get("/services", ServicesController.getAllServices);
 router.get("/services/:id", ServicesController.getServiceById);
 router.patch("/services/:id", ServicesController.updateService);
 router.delete("/services/:id", ServicesController.deleteService);
+router.get("/services-city", ServicesController.getServicesByCity);
 
 export default router;

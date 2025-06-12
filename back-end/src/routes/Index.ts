@@ -84,10 +84,7 @@ router.get("/user-branch/user=:idUser/filial=:idBranch", UserBranchRoutes);
 router.get("/user-branch/user=:idUser", UserBranchRoutes);
 router.patch("/user-branches/:id", UserBranchRoutes);
 router.patch("/update-credits/user=:idUser/branch=:idBranch", UserBranchRoutes);
-router.delete(
-  "/user-branch/userdel=:idUser/filial=:idBranch",
-  UserBranchRoutes
-);
+router.delete("/user-branch/userdel=:idUser/filial=:idBranch", UserBranchRoutes);
 router.delete("/user-branches/:id", UserBranchRoutes);
 
 // USERS (USUÁRIOS)
@@ -147,9 +144,9 @@ router.get("/services", ServicesRoutes);
 router.get("/services/:id", ServicesRoutes);
 router.patch("/services/:id", ServicesRoutes);
 router.delete("/services/:id", ServicesRoutes);
+router.get("/services-city", ServicesRoutes);
 
 // SCHEDULING (AGENDAMENTOS)
-router.get("/services-city", SchedulingRoutes);
 router.post("/schedulings", SchedulingRoutes);
 router.get("/schedulings", SchedulingRoutes);
 router.get("/schedulings/:id", SchedulingRoutes);
@@ -158,7 +155,7 @@ router.delete("/schedulings/:id", SchedulingRoutes);
 router.get("/agendamentos", SchedulingRoutes);
 router.get("/details", SchedulingRoutes);
 router.get("/top-service", SchedulingRoutes);
-router.get("/graficos", SchedulingRoutes);
+router.get("/grafico-admin", SchedulingRoutes);
 
 // SCHEDULE (AGENDAS)
 router.post("/schedule", ScheduleRoutes);

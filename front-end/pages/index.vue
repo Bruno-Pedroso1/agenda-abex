@@ -33,8 +33,12 @@
             @keyup.enter="login"
           ></v-text-field>
           <v-row>
-            <v-col class="text-end">
-              <a href="##">Esqueci minha senha</a>
+            <v-col class="text-center col-6" style="position: relative; left: 40px;">
+              <!-- <span class="" style="position: relative; top: 50%; white-space: nowrap;">Ainda não possui conta? </span> -->
+              <a href="/register">Cadastre-se</a>
+          </v-col>
+            <v-col class="text-center col-6" style="position: relative; right: 20px;">
+              <a href="##" style="white-space: nowrap;">Esqueci minha senha</a>
             </v-col>
           </v-row>
         </v-col>
@@ -51,12 +55,9 @@
         >Acessar</v-btn
       >
     </v-row>
-    <a class="d-flex justify-center mb-5" href="/criarp">
-Clique para saber como cadastrar sua empresa
-</a>
-
-
-
+    <a class="d-flex justify-center mb-5" style="text-decoration: none;" href="/criarp">
+        Clique para saber como cadastrar sua empresa
+    </a>
     <v-row class="justify-center mb-5 text-center">
       <span
         >Ao continuar, você está concordando com nossos
@@ -77,9 +78,6 @@ Clique para saber como cadastrar sua empresa
 
       </v-icon>
 
-    </v-row>
-    <v-row class="justify-center">
-      <span>Ainda não possui conta? <a href="/register">Cadastre-se</a></span>
     </v-row>
   </v-container>
 </template>
@@ -241,4 +239,8 @@ export default {
 };
 </script>
 
-<style></style>
+  <style>
+    a {
+      text-decoration: none;
+    }
+  </style>

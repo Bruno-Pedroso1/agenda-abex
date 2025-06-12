@@ -6,7 +6,7 @@ import superAdminOnlyMiddleware from "../utils/superAdminOnlyMiddleware";
 
 const router = express.Router();
 
-router.get("/services-city", SchedulingController.getServicesByCity);
+
 router.post("/schedulings", SchedulingController.createScheduling);
 router.get("/schedulings", SchedulingController.getAllSchedulings);
 router.get("/schedulings/:id", SchedulingController.getSchedulingById);
@@ -15,6 +15,6 @@ router.delete("/schedulings/:id", SchedulingController.deleteScheduling);
 router.get("/agendamentos", SchedulingController.getDadosScheduling);
 router.get("/details", SchedulingController.getDetails);
 router.get("/top-service", SchedulingController.getTopService);
-router.get("/graficos", SchedulingController.getDadosGrafico);
+router.get("/grafico-admin", SchedulingController.getDadosGraficoAdmin);
 
 export default router;
