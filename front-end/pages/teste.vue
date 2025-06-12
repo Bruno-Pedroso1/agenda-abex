@@ -5,8 +5,14 @@
       <v-col>
         <h1 class="d-flex align-center flex-column">APERTA F12 QUE VAI APARECER OS DADOS</h1>
 
+        <v-card style="height: 200px; background-color: blue;">
+          <v-card-title class="d-flex justify-content-center" style="position: relative; left: 50%; transform: translate(-45%);">
+            isso só funciona pra admin logado, a segunda função da pra usar no gráfico 3, apenas precisa mudar o filtro
+          </v-card-title>
 
-        <v-btn @click="testeGrafico()"> clica aqui e vai mostrar os dados do admin logado</v-btn>
+          <v-btn @click="testeGrafico()" class="mb-3 d-flex justify-content-center" style="position: relative; left: 50%; transform: translate(-50%);"> função merda que da pra melhora</v-btn>
+          <v-btn @click="testeFull()" class="d-flex justify-content-center" style="position: relative; left: 50%; transform: translate(-50%);"> tem mais dados aqui, nessa função falta somar o valor total caso exista mais de uma agenda por funcionario</v-btn>
+        </v-card>
       </v-col>
     </v-row>
 
@@ -30,6 +36,7 @@ export default {
   async created() {
     // await this.getUserByToken();
     // await this.testeGrafico();
+    // await this.testeFull();
   },
   methods: {
     // async getUserByToken() {
@@ -49,8 +56,25 @@ export default {
     //   }
     // },
 
+async testeFull() {
+const { data } = await this.$api.get("/api/users/by-token");
+
+try {
+
+  if(data.role == 'admin') {
+  console.log('???')
+  const test = await this.$api.get("/api/grafico-geral-admin-empresa");
+  const filtroTeste = test.filter(item => item.funcionario_id === data.id);
+  console.log(filtroTeste)
+}
+} catch {
+  console.log(error.message)
+}
+},
+
   async testeGrafico() {
   const { data } = await this.$api.get("/api/users/by-token");
+
   if(!data) {
     console.log('PROVAVELMENTE VC NAO TA LOGADO OU FUNÇÃO QUEBROU')
   }

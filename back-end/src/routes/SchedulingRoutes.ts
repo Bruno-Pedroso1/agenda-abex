@@ -16,5 +16,6 @@ router.get("/agendamentos", SchedulingController.getDadosScheduling);
 router.get("/details", SchedulingController.getDetails);
 router.get("/top-service", SchedulingController.getTopService);
 router.get("/grafico-admin", SchedulingController.getDadosGraficoAdmin);
+router.get("/grafico-geral-admin-empresa", SchedulingController.getDadosFull);
 
 export default router;

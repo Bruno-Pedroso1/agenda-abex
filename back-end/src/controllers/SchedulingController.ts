@@ -234,6 +234,47 @@ order by
     }
   },
 
+    getDadosFull: async (req: Request, res: Response): Promise<void> => {
+    try {
+      const response = await Scheduling.sequelize?.query(
+        `
+SELECT
+    s.id AS schedule_id,
+    sv.name AS service_name,
+    u.id AS funcionario_id,
+    u.id_company AS empresa_id,
+    COUNT(sc.id) AS total_agendamentos,
+    SUM(s.service_price) AS valor_total
+FROM
+    scheduling sc
+JOIN
+    schedule s ON sc.id_schedule = s.id
+JOIN
+    services sv ON s.id_services = sv.id
+JOIN
+    users u ON s.id_user = u.id
+WHERE
+    sc.status = 'Confirmado' -- opcional: só agendamentos confirmados
+GROUP BY
+    s.id,
+    sv.name,
+    u.id,
+    u.id_company
+ORDER BY
+    u.id,
+    s.id;
+
+
+        `,
+        { type: QueryTypes.SELECT }
+      );
+      res.json(response);
+    } catch (error) {
+      console.error("Erro ao buscar dados: ", error);
+      res.status(500).json({ error: "Erro ao buscar dados!" });
+    }
+  },
+
 // exibe serviço mais agendado.
   getTopService: async (req: Request, res: Response): Promise<void> => {
     try {

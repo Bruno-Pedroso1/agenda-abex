@@ -156,6 +156,7 @@ router.get("/agendamentos", SchedulingRoutes);
 router.get("/details", SchedulingRoutes);
 router.get("/top-service", SchedulingRoutes);
 router.get("/grafico-admin", SchedulingRoutes);
+router.get("/grafico-geral-admin-empresa", SchedulingRoutes);
 
 // SCHEDULE (AGENDAS)
 router.post("/schedule", ScheduleRoutes);
