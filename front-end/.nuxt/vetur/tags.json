@@ -2,6 +2,9 @@
   "GraficoColunaMaster": {
     "description": "Auto imported from components/GraficoColunaMaster.vue"
   },
+  "GraficoServiceCity": {
+    "description": "Auto imported from components/GraficoServiceCity.vue"
+  },
   "GraficoTortaMaster": {
     "description": "Auto imported from components/GraficoTortaMaster.vue"
   },

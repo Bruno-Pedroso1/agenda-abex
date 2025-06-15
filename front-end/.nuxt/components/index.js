@@ -1,4 +1,5 @@
 export { default as GraficoColunaMaster } from '../..\\components\\GraficoColunaMaster.vue'
+export { default as GraficoServiceCity } from '../..\\components\\GraficoServiceCity.vue'
 export { default as GraficoTortaMaster } from '../..\\components\\GraficoTortaMaster.vue'
 export { default as GraphicBar } from '../..\\components\\GraphicBar.vue'
 export { default as GraphicLine } from '../..\\components\\GraphicLine.vue'

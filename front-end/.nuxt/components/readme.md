@@ -7,6 +7,7 @@ You can directly use them in pages and other components without the need to impo
 **Tip:** If a component is conditionally rendered with `v-if` and is big, it is better to use `Lazy` or `lazy-` prefix to lazy load.
 
 - `<GraficoColunaMaster>` | `<grafico-coluna-master>` (components/GraficoColunaMaster.vue)
+- `<GraficoServiceCity>` | `<grafico-service-city>` (components/GraficoServiceCity.vue)
 - `<GraficoTortaMaster>` | `<grafico-torta-master>` (components/GraficoTortaMaster.vue)
 - `<GraphicBar>` | `<graphic-bar>` (components/GraphicBar.vue)
 - `<GraphicLine>` | `<graphic-line>` (components/GraphicLine.vue)

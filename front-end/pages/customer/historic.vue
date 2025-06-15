@@ -136,6 +136,7 @@ export default {
           }
         }
         this.schedulings = agendamentosDoUsuario;
+        console.log(agendamentosDoUsuario)
       } catch (error) {
         this.$toast.error(error.message);
       }
