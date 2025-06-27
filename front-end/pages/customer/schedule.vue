@@ -114,6 +114,10 @@
         </v-calendar>
       </v-sheet>
     </v-sheet>
+
+    <v-card-text>
+        <GraficoComLib /> </v-card-text>
+
     <v-dialog
       v-model="eventoSelecionadoDialog"
       width="600"
