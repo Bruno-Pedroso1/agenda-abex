@@ -20,6 +20,9 @@
           Abaixo você encontra o serviço mais agendado por região
         </h3>
       </v-card-text>
+<img src="../components/0d734735-b658-4b70-87b6-730f1212d13b.jpg">
+<img src="../components/56ec34bd-d1fb-4ed3-bab5-e65cbd8fdc09.jpg">
+<img src="../components/462ea37f-f797-4489-991d-0ee35b97589a.jpg">
 
       <div v-for="(dados, cidade) in filtradoPorCidade" :key="cidade" class="mb-10">
         <h2 class="text-h6 mb-2">{{ cidade }}</h2>
