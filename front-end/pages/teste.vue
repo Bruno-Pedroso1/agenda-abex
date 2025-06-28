@@ -1,4 +1,3 @@
-
 <template>
   <v-container>
     <v-row>
@@ -60,6 +59,21 @@ async testeFull() {
 const { data } = await this.$api.get("/api/users/by-token");
 
 try {
+    const idCompanyUsuario = data.idCompany;
+    console.log(Empresa do usuário: ${idCompanyUsuario});
+
+    // Pega dados gerais
+    const resposta = await this.$api.get("/api/grafico-geral-admin-empresa");
+
+    // Filtra os dados pela empresa do usuário logado
+    const dadosFiltrados = resposta.filter(item => item.id_company === idCompanyUsuario);
+
+    console.log("Dados filtrados por empresa:", dadosFiltrados);
+  } catch (error) {
+    console.error("Erro ao buscar dados:", error.message);
+  }
+
+try {
 
   if(data.role == 'admin') {
   console.log('???')
@@ -79,7 +93,7 @@ try {
     console.log('PROVAVELMENTE VC NAO TA LOGADO OU FUNÇÃO QUEBROU')
   }
   const role = data.role;
-  console.log(`Cargo: ${role}, Empresa ID: ${data.idCompany}, User ID: ${data.id}`);
+  console.log(Cargo: ${role}, Empresa ID: ${data.idCompany}, User ID: ${data.id});
   console.log('this.$router:', this.$router);
 
   if (!(role == 'admin' || role == 'superadmin')) {
@@ -98,7 +112,7 @@ try {
   }
 
   try {
-    const response = await this.$api.get(`/api/grafico-admin`);
+    const response = await this.$api.get(/api/grafico-admin);
     const filtroUsuario = response.filter(item => item.id_funcionario === this.user.id);
     if(role == 'customer' || null) {
       console.log('teste validação de segurança')
